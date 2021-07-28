@@ -24,3 +24,23 @@ p {
     font-size: medium;
     line-height: 50px;
 }
+
+p+p{
+    color: blue;}
+
+    /* .extra-info::before {
+        display: block;
+        content: 'Sprawdzanie befora.. ';
+        color: darkblue;
+        font-weight: 700;
+    } */
+    
+    .extra-info::after {
+        display: block;
+        content: ' koniec ciekawostki ';
+    }
+
+    .extra-info::first-letter{
+        color: blue;
+        font-size: xx-large;
+    }
