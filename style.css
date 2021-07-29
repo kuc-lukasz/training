@@ -1,5 +1,8 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-image: ;
+    background-repeat: ;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
 }
 
 h1 {
@@ -17,6 +20,11 @@ h2{
     text-align: center;
     
 }
+[type="number"]{
+    width: 50px;
+}
+
+
 
 p {
    
@@ -44,3 +52,8 @@ p+p{
         color: blue;
         font-size: xx-large;
     }
+
+    p{
+        font-size: ;
+    }
+
