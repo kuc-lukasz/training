@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .current-pic{
+            opacity: 1;
+        }
+        img {
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <button id="back-btn">Poprzednie</button>
+    <img src="https://picsum.photos/id/1/200/200" alt="">
+    <img src="https://picsum.photos/id/10/200/200" alt="">
+    <img src="https://picsum.photos/id/77/200/200" alt="">
+    <button id="next-btn">Następne</button>
+</body>
+<script>
+    
+    const backBtn = document.querySelector('#back-btn')
+    const nextBtn = document.querySelector('#next-btn')
+    let image = document.querySelector('img:first-of-type')
+    image.classList.add('current-pic')
+
+    let howManyClick = 0
+
+    function nextPic () {
+        console.log('zmiana klasy')
+        howManyClick = (howManyClick + 1) % 3
+        image.classList.remove('current-pic')
+        image = document.querySelector(`img:nth-of-type(${howManyClick + 1})`)
+        image.classList.add("current-pic")
+        
+    }
+    function prevPic () {
+        console.log('zasasa')
+        howManyClick = howManyClick - 1
+        image.classList.remove('current-pic')
+        image = document.querySelector(`img:nth-of-type(${howManyClick + 1})`)
+        image.classList.add("current-pic")
+  
+    }
+
+    nextBtn.addEventListener('click', nextPic)
+    backBtn.addEventListener('click', prevPic)
+
+
+
+
+</script>
+</html>
