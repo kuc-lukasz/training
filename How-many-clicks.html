@@ -1,50 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-        }
-        #content {
-            text-align: center;
-            margin: 20px;
-            padding: 30px;
-            border: 3px solid brown;
-            background-color: lightblue;
-            width: 300px;
-
-        }
-        #areaofText {
-            display: inline;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      #content {
+        text-align: center;
+        margin: 20px;
+        padding: 30px;
+        border: 3px solid brown;
+        background-color: lightblue;
+        width: 300px;
+        border-radius: 30px;
+      }
+      #areaofText {
+        display: inline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="content">
-
-        <button id="btn">Kliknij mnie</button>
-        <p id="textarea">Zostało kliknięte: <a id="areaofText"></a> </p>
+      <button id="btn">Kliknij mnie</button>
+      <p id="textarea">Zostało kliknięte: <a id="areaofText"></a></p>
     </div>
-</body>
+  </body>
 
-<script>
-const btn = document.getElementById("btn")
-const textarea = document.getElementById('textare')
-const numbersOfClick = document.getElementById('areaofText')
-let howManyClick = 0
+  <script>
+    const btn = document.getElementById("btn");
+    const textarea = document.getElementById("textare");
+    const numbersOfClick = document.getElementById("areaofText");
+    let howManyClick = 0;
 
-btn.addEventListener("click", () => {
-    
-    howManyClick = howManyClick + 1 
-    numbersOfClick.textContent = howManyClick
-   console.log("Zostało kliknięte:" + howManyClick)
-
-})
-
-</script>
+    btn.addEventListener("click", () => {
+      howManyClick = howManyClick + 1;
+      numbersOfClick.textContent = howManyClick;
+      console.log("Zostało kliknięte:" + howManyClick);
+    });
+  </script>
 </html>
