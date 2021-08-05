@@ -1,0 +1,39 @@
+body {
+    height: 100vh;    
+    display: flex;
+    justify-content: center;
+    align-items: center;          
+    margin: 0px;       
+}
+.parent{
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    overflow: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+.child {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box
+}
+/* .ch-1{
+    order: ;
+}
+.ch-2{
+    flex-grow: ;
+}
+.ch-3{
+    flex-grow: ;
+} */
+.child:nth-child(even){
+    background-color: black;
+    color: black;
+}
