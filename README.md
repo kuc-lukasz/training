@@ -13,3 +13,13 @@
 
 <img src="./img/slider.png">
 
+#chessboard 
+Training flexbox 
+
+<img src="./img/chessboard.png">
+
+#navigation
+traning navigation with flexbox 
+
+<img src="./img/navigation.png">
+

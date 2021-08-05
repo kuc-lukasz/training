@@ -1,0 +1,39 @@
+body {
+  margin: 0px;
+  background-color: rgb(223, 254, 255);
+}
+.nav {
+  background-color: rgb(78, 22, 22);
+}
+
+ul {
+  max-width: 1280px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  height: 150px;
+}
+li {
+  list-style: none;
+}
+.nav-sections {
+  width: 80px;
+  border: 3px solid rgb(223, 254, 255);
+  margin: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-weight: 700;
+  padding: 10px;
+}
+.logo {
+  flex-grow: 1;
+}
+img {
+  border-radius: 50%;
+  border: 3px solid rgb(223, 254, 255);
+  
+}
+a {text-decoration: none;}
