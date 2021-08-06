@@ -23,5 +23,5 @@ traning navigation with flexbox
 
 <img src="./img/navigation.png">
 
-<img src="./img/transform-transmition.mp4>
+<img src="./img/transform.gif>
 
