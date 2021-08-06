@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        border: 2px solid rgb(101, 126, 134);
+        margin: 50px;
+      }
+      .box-1 {
+          transition: background-color 2s ease-out , border-radius 2s ease-out, transform 2s cubic-bezier(.9,-0.55,.45,.08); 
+          transform: rotate(0deg) scale(1, 1) translate(0,0)
+          
+      }
+      .box-1:hover{
+          background-color: chocolate;
+          border-radius: 50px;
+          transform: rotate(90deg) translate(-100px, -300px) scale(2,2)
+      }
+      .box-2 {
+          transition: transform 1 ease-in;
+      }
+      .box-2:hover {
+
+      }
+      
+      a {
+        display: inline-block;
+        border: 2px solid rgb(0, 0, 0);
+        padding: 5px 15px;
+        margin: 5px;
+        text-decoration: none;
+        border-radius: 10px;
+        transition-property: background-color, color;
+        transition-duration: 2s;
+        transition-timing-function: ease-in;
+        transition-delay: 2s;
+      }
+
+      a:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box-1"></div>
+    <div class="box box-2"></div>
+    <div class="box box-3"></div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+body {
+    background: rgb(0,0,0);
+background: linear-gradient(5deg, rgba(0,0,0,1) 30%, rgba(68,203,205,1) 100%);
+    height: 100vh;    
+    display: flex;
+    justify-content: center;
+    align-items: center;          
+    margin: 0px;    
+       
+}
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./img/tlo.jpg);
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1280px;
+}
+.nav{
+    margin: 60px;
+}
+.introduce{
+    line-height: 3px;
+    margin: 20px;
+    position: relative;
+}
+
+.introduce::after{
+    content: "";
+    position: absolute;
+    left: calc(50% - 4rem);
+    bottom: -20px;
+    height: 2px;
+    background-color: rgb(29, 249, 253, 0.7);
+    width: 8rem;
+    
+
+}
+.my-pic{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
