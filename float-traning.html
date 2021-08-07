@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body{
+            
+        }
+      .clearfix {
+        background-color: rgba(32, 178, 171, 0.377)
+
+      }
+      .clearfix::after{
+          content: "";
+          
+          display: block;
+          clear: both;
+      }
+      .box {
+        width: 150px;
+        height: 150px;
+        border: 2px solid gray;
+        margin: 2px;
+        box-sizing: border-box;
+      }
+      .red {
+        background-color: red;
+        float: left;
+      }
+      .black {
+        background-color: black;
+        float: right;
+      }
+      .yellow {
+        background-color: yellow;
+        float: right;
+        
+      }
+      /* .blue {
+        background-color: blue;
+        float: left;
+      } */
+      .chestboard {
+          width: 50vh;
+          height: 50vh;
+          margin: 15vh auto;
+
+      }
+      .chestboard::after{
+          content: "";
+          display: block;
+          float: left;
+          clear: both;
+      }
+      .chest-box{
+          width: 100px;
+          height: 100px;
+          border: 1px solid black;
+          float: left;
+      }
+      .chest-box:nth-child(even){
+          background-color: black;
+      }
+      .box-4{
+          clear: left;
+      }
+      .box-7{
+          clear: left;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="clearfix">
+      <div class="box red"></div>
+      <div class="box black"></div>
+      <div class="box yellow"></div>
+      <div class="box blue"></div>
+    </div>
+    <div class="chestboard">
+
+        <div class="chest-box box-1"></div>
+        <div class="chest-box box-2"></div>
+        <div class="chest-box box-3"></div>
+        <div class="chest-box box-4"></div>
+        <div class="chest-box box-5"></div>
+        <div class="chest-box box-6"></div>
+        <div class="chest-box box-7"></div>
+        <div class="chest-box box-8"></div>
+        <div class="chest-box box-9"></div>
+    </div>
+  </body>
+</html>
