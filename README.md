@@ -23,7 +23,12 @@ traning navigation with flexbox
 
 <img src="./img/navigation.png">
 
-#transform traning
+#transform - traning
 
 <img src="./img/transform.gif">
+
+#float - traning 
+(float navigation and chessboard using float)
+
+<img src="./img/float.png">
 
