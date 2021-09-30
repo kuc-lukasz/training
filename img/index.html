@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+    margin: 0 auto;
+    box-sizing: content-box;
+    padding: 0;
+}
+.maindiv{
+    width: 1000px;
+    height: 100vh;
+    border: 3px solid red;
+    background-color: lightgoldenrodyellow;
+    display: block;
+    
+}
+
+
+.divki{
+    width: 80px;
+    height: 80px;
+    border: 2px solid blue;
+    background-color: lightblue;
+    margin: 30px;
+    text-align: center;
+}
+.uno{
+    
+    background-color: brown;
+    text-align: center;
+    transition: background-color 1s ease-in, transform 2s cubic-bezier(.9,-0.55,.45,.08);
+    float: right;
+}
+.uno:hover{
+    background-color: blueviolet;
+    transform: rotate(78deg);
+
+}
+.dos{
+    flex-grow: 10;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="maindiv">
+        <div class="uno divki">1</div>
+        <div class="dos divki">2</div>
+        <div class="divki">3</div>
+        <div class="divki">4</div>
+        <div class="divki">5</div>
+        <div class="divki">6</div>
+        <div class="divki">7</div>
+        <div class="divki">8</div>
+        <div class="divki">9</div>
+        <div class="divki">10</div>
+        <div class="divki">11</div>
+        <div class="divki">12</div>
+    </div>
+    
+</body>
+</html>
