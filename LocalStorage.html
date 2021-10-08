@@ -22,14 +22,18 @@ const user2 = {
     name: "Seba",
     age: 13,
 }
-
 function saveToLs (user) {
 const userAsString = JSON.stringify(user);
 window.localStorage.setItem(user.id, userAsString)
+
+}
+
+function getfromLS (id) {
+    const newUser = window.localStorage.getItem(id)
+   return JSON.parse(newUser)
 }
  
-saveToLs(user1)
-saveToLs(user2)
+console.log(getfromLS(1))
 
 
 </script>

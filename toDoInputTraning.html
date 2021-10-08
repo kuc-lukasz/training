@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+        <label for="write-task">Write new task</label>
+      <input id="write-task" />
+      <button>Add task</button>
+    </div>
+    <div class="all-tasks">
+        
+        <ul class="all-taskss">
+            <li>Zadanie 1</li>
+            <li>Zadanie 2</li>
+            <li>Zadanie 3</li>
+        </ul>
+    </div>
+  </body>
+  <script>
+      const input = document.querySelector('#write-task')
+      const addTaskBtn = document.querySelector('button')
+      const allTaskList = document.querySelector(".all-taskss")
+
+      addTaskBtn.addEventListener('click', function addTaskToList () {
+        const inputValue = input.value
+        console.log(inputValue)
+        input.value = ""
+
+        const newTask = document.createElement('li')
+        newTask.innerText = inputValue
+        allTaskList.appendChild(newTask)
+
+      })
+
+  </script>
+</html>
