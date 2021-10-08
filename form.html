@@ -1,34 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <style>
+      body{
+          width: 100vw;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+      }
+.container{
+    margin: 20px;
+    width: 200px;
+    height: 100px;
+    border: 3px solid lightblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  </style>
+  <body>
     <!-- <form method="GET">
         <label for="form">Wprowadz email</label>
         <input type="text" id="form" name="email" placeholder="Write..." >
         <button>Zatwierdź</button>
     </form> -->
-
-    <form>
+    <div>
+      <form>
         <label>Wprowadź email</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" />
         <label for="password">Wprowadź hasło</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" />
         <button>Zatwierdź</button>
+      </form>
+    </div>
 
-    </form>
+    <div class="container"></div>
 
     <script>
-        const form = document.forms[0]
-         form.addEventListener('submit',(e) => {
-             e.preventDefault()
-             console.log(form.email.value)
-             console.log(form.password.value)
-         })
+        const container = document.querySelector('.container')
+      const form = document.forms[0];
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        emailValue = document.createElement('p')
+        passwordValue = document.createElement('p')
+        emailValue.textContent = form.email.value
+        passwordValue.textContent = form.password.value
+        container.appendChild(emailValue)
+        container.appendChild(passwordValue)
+
+
+
+
+        emailValue = document.createElement('p')
+        container.appendChild(emailValue)
+
+
+
+
+
+        console.log(form.email.value);
+        console.log(form.password.value);
+        const inputValue = form.email.value;
+        console.log(inputValue);
+      });
+      const inputEmailValue = document.querySelector("#email");
+      inputEmailValue.addEventListener("keyup", () => {
+        console.log(form.email.value);
+      });
     </script>
-</body>
+  </body>
 </html>
