@@ -7,25 +7,30 @@
     <title>Document</title>
   </head>
   <style>
-      body{
-          width: 100vw;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
-      }
-.container{
-    margin: 20px;
-    width: 200px;
-    height: 100px;
-    border: 3px solid lightblue;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    body {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      margin: 20px;
+      width: 200px;
+      height: 100px;
+      border: 3px solid lightblue;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hidden {
+      display: none;
+    }
 
-
+    .wronginput {
+        border: 2px solid red;
+    }
   </style>
   <body>
     <!-- <form method="GET">
@@ -43,39 +48,52 @@
       </form>
     </div>
 
-    <div class="container"></div>
+    <div class="container hidden"></div>
 
     <script>
-        const container = document.querySelector('.container')
+      const container = document.querySelector('.container')
       const form = document.forms[0];
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        emailValue = document.createElement('p')
-        passwordValue = document.createElement('p')
-        emailValue.textContent = form.email.value
-        passwordValue.textContent = form.password.value
-        container.appendChild(emailValue)
-        container.appendChild(passwordValue)
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
 
 
+          if (form.email.value === "" || form.email.value.trim() === ""){
+              const emailcontent = document.querySelector("#email")
+              document.querySelector('#password').classList.add('wronginput')
+              emailcontent.classList.add('wronginput')
+
+              const alert = document.createElement('div')
+              alert.style.color = "red"
+              alert.innerText = ('Wpisz hasło!!!')
+              form.appendChild(alert)
+
+              return
+
+          }
+
+          const emailValue = document.createElement('p')
+          const  passwordValue = document.createElement('p')
+          emailValue.textContent = form.email.value
+          passwordValue.textContent = form.password.value
+          container.appendChild(emailValue)
+          container.appendChild(passwordValue)
+
+          container.classList.remove("hidden")
+          emailValue = document.createElement('p')
+          container.appendChild(emailValue)
 
 
-        emailValue = document.createElement('p')
-        container.appendChild(emailValue)
+          console.log(form.email.value);
+          console.log(form.password.value);
+          const inputValue = form.email.value;
+          console.log(inputValue);
+        });
 
-
-
-
-
-        console.log(form.email.value);
-        console.log(form.password.value);
-        const inputValue = form.email.value;
-        console.log(inputValue);
-      });
-      const inputEmailValue = document.querySelector("#email");
-      inputEmailValue.addEventListener("keyup", () => {
-        console.log(form.email.value);
-      });
+        const inputEmailValue = document.querySelector("#email");
+        inputEmailValue.addEventListener("keyup", () => {
+          console.log(form.email.value);
+        });
     </script>
   </body>
 </html>
