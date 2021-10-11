@@ -56,8 +56,6 @@
 
         form.addEventListener("submit", (e) => {
           e.preventDefault();
-
-
           if (form.email.value === "" || form.email.value.trim() === ""){
               const emailcontent = document.querySelector("#email")
               document.querySelector('#password').classList.add('wronginput')
