@@ -1,16 +1,33 @@
-const oldArray = [14,22,31,74,5]
+function onlyPositiveNumbers (array) {
+const positiveNumb = array.filter(item =>{
+    return item > 0
+})
 
-const newArray = oldArray.reduce((prev, n, index, array) =>{
-    prev += n;
-    if (index === array.length-1){
-    return prev / array.length}
-    return prev
+const result = positiveNumb.reduce((prev, item) => {
+    return prev += item
+
+} )
+return result
+}
+
+
+const testing = onlyPositiveNumbers([1,2,3,4,5])
+console.log(testing)
+
+
+
+
+// const oldArray = [14,22,31,74,5]
+
+// const newArray = oldArray.reduce((prev, n, index, array) =>{
+//     prev += n;
+//     if (index === array.length-1){
+//     return prev / array.length}
+//     return prev
     
+// },)
 
-
-},)
-
-console.log(newArray)
+// console.log(newArray)
 
 
 

@@ -1,8 +1,10 @@
-const oldArray = [1,2,3,4,5]
+const oldArray = [1,2,3,4,5, "Jerzy", "Zosia"]
 
-const newArray = oldArray.filter(e =>{
-    return e > 3
+const newArray = oldArray.filter(function (a){
+ return typeof a === "string"
+
 })
 
-console.log("Old ", oldArray)
-console.log("New", newArray)
+console.log(newArray)
+
+
