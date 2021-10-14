@@ -153,8 +153,10 @@ a {
 }
 
 .contacts {
-    display: none;
+    overflow: hidden;
     position: relative;
+    transition: all 1.4s cubic-bezier(.27,1.4,.33,1.55);
+    height: 0px;
 
   }
   .cubic {
@@ -196,10 +198,10 @@ button{
 }
 
 .hideInfo{
-    display: block;
+    height: 370px;
     position: relative;
     margin-top: -430px;
-    ;
+    margin-bottom: 0px;
 }
 .about-me-buttons{
   color: black;

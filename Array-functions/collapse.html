@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+ul{
+    padding: 10px;
+    margin: 0px;
+}
+.coffe-li,
+.tea-li{
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    padding: 0 10px;
+    margin: 0;
+    height: 0px;
+}
+.hiddenOf{
+    /* visibility: visible; */
+    height: 16px;
+}
+
+
+</style>
+<body>
+    <div class="collapse">
+        <ul class="coffe">Coffe</ul> 
+            <li class="coffe-li">Black and White</li>
+        
+        <ul class="tea">Tea</ul>
+            <li class="tea-li">Green and Dark</li>
+        
+
+    </div>
+</body>
+<script>
+const coffe = document.querySelector('.coffe')
+const coffeLi = document.querySelector('.coffe-li')
+
+const tea = document.querySelector('.tea')
+const teaLi = document.querySelector('.tea-li')
+
+coffe.addEventListener('click', function () {
+    coffeLi.classList.toggle('hiddenOf')
+})
+tea.addEventListener('click', function () {
+    teaLi.classList.toggle('hiddenOf')
+})
+
+</script>
+</html>

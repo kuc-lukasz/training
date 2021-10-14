@@ -17,4 +17,5 @@ const newX = x
 .filter(item => item.price < 400)
 .map(item => `${item.name} - ${item.price}`)
 .join("\n")
+
 console.log(newX)
