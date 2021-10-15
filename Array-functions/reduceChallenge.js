@@ -14,6 +14,7 @@ return result
 const testing = onlyPositiveNumbers([1,2,3,4,5])
 console.log(testing)
 
+if(1 > 2 ? 10 : 20)
 
 
 
@@ -65,3 +66,8 @@ console.log(testing)
 // //Wyliczanie średniej w metodzie reduce 
 // const orders = [4,3,6,11,14]
 
+person = [
+    {name: "John", car: "Fiat"}
+    {name2: "Mariusz",} ]
+
+person && person.name2 && person.name2.car

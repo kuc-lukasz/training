@@ -11,20 +11,47 @@ const students = [
     minTasksDone: 100,
   };
 
-  function checkJuniorReg (){
-      const goodStudents = [];
-      const badStudents = []
+function studentsVer () {
+  const goodStudents = [];
+  const badStudents = [];
 
-      const validator = student => student.tasksDone >= requirements.minHoursSpent && student.hoursSpent >= requirements.minHoursSpent 
+  const validator = student => student.tasksDone >= requirements.minTasksDone && student.hoursSpent >= requirements.minHoursSpent
+  
 
-      students.forEach(student => {
-          if(validator(student)){
-            goodStudents.push(student.name)
-          } else {
-              badStudents.push(student.name)
-          }
-      })
-      return `Dobrzy studencji: ${goodStudents.join(", ")}\nŹli studenci: ${badStudents.join(" ,")}`
-  } 
+
+  students.forEach(student => {
+    if(validator(student)) {
+      goodStudents.push(student.name)
+    } else {
+      badStudents.push(student.name)
+    }
+  }) 
+  return `Dobrzy studencji: ${goodStudents}\n Źli studencji: ${badStudents}`
+}
+
+console.log(studentsVer())
+
+
+
+
+
+
+
+
+  // function checkJuniorReg (){
+  //     const goodStudents = [];
+  //     const badStudents = []
+
+  //     const validator = student => student.tasksDone >= requirements.minHoursSpent && student.hoursSpent >= requirements.minHoursSpent 
+
+  //     students.forEach(student => {
+  //         if(validator(student)){
+  //           goodStudents.push(student.name)
+  //         } else {
+  //             badStudents.push(student.name)
+  //         }
+  //     })
+  //     return `Dobrzy studencji: ${goodStudents.join(", ")}\nŹli studenci: ${badStudents.join(" ,")}`
+  // } 
  
-  console.log(checkJuniorReg())
+  // console.log(checkJuniorReg())
