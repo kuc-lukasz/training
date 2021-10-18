@@ -15,15 +15,24 @@ const students = [
   },
 ],
 
-getTopNotes = (array) => {
-    return array.map((student) => {
-        return student.notes.reduce((max, next) => max > next ? max : next)
-    }) 
-}
+// getTopNotes = (array) => {
+//     return array.map((student) => {
+//         return student.notes.reduce((max, next) => max > next ? max : next)
+//     }) 
+// }
 
 // druga opcja 
-getTopNotes = (array) => array.map(({ notes }) => Math.max(...notes))
+// getTopNotes = (array) => array.map(({ notes }) => Math.max(...notes))
 
 //reduce zawsze przekazywal do literacji jedną z dwóch wiekszych liczb
 
+
+
+getTopNotes = (array) => {
+  return array.map((student) => {
+    // return student.notes.reduce((max, rest) => max > rest ? max : rest)
+    return Math.max(...student.notes)
+  })
+  
+}
 console.log(getTopNotes(students))

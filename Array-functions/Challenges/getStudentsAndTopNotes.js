@@ -7,22 +7,35 @@ const students = [
   ]
 
 
-function studentAndTopNotes(array) {
+// function studentAndTopNotes(array) {
+//     return array.map((student) => {
+//         return {
+            
+//             name: student.name,
+//             topNote: student.notes.reduce((max, next) => max >next ? max : next),
+//         } 
+//     })   
+// }
+
+// // Drugi sposób 
+
+// function studentAndTopNotes(array) {
+//     return array.map(({name, notes}) => ({
+//         name, 
+//         topNote: Math.max(...notes)
+//     }))
+    
+// }
+
+
+studentAndTopNotes = (array) => {
     return array.map((student) => {
         return {
-            
-            name: student.name,
-            topNote: student.notes.reduce((max, next) => max >next ? max : next),
-        } 
-    })   
-}
-
-function studentAndTopNotes(array) {
-    return array.map(({name, notes}) => ({
-        name, 
-        topNote: Math.max(...notes)
-    }))
-    
+            nane: student.name,
+            Top: student.notes.reduce((prev, current) => prev > current ? prev : current),
+        }
+    })
+        
 }
 
 
