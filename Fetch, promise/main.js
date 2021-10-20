@@ -21,7 +21,7 @@ const addBtn = document.querySelector('.btn')
 
 
 const url = 'https://jsonplaceholder.typicode.com/users/'
-let usernumber = 1;
+let usernumber = 1; //waæne aby to byla zmienna!!! 
 
 function fetchUser() {
 
@@ -41,10 +41,7 @@ fetch(url + usernumber)
     //dodawanie kolejnego usera 
     usernumber += 1
 });
-
 }
-
-
 addBtn.addEventListener('click', fetchUser)
 
 

@@ -1,0 +1,39 @@
+div{
+    display: flex;
+    align-items: center;
+justify-content: center;
+}
+
+ul{
+    width: 170px;
+    height: 120px;
+    overflow: hidden;
+    padding: 30px;
+    margin: 40px;
+}
+li{
+    width: 150px;
+    height: 100px;
+    background-color: lightblue;
+    border: 1px solid darkblue;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    display: none;
+}
+button{
+    width: 50px;
+    height: 40px;
+}
+
+.hidden{
+    display: none;
+}
+.active{
+    display: block;
+}
+.disabled{
+    display: none;
+}
