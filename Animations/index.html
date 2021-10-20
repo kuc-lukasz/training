@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.btn{
+    width: 100px;
+    height: 60px;
+    outline: none;
+}
+.btn:hover{
+    width: 200px;
+    height: 80px;
+    background-color: lightblue;
+}
+.btn--with-transition{
+    transition: all .4s;
+}
+
+img{
+    width: 20%;
+    height: 20%;
+    /* transition: margin-left 1s; */
+    position: relative;
+    animation: nazwaPrzykladowa 5s normal;
+}
+/* img:hover{
+    width: 50%;
+    height: 50%;
+} */
+
+.img--animated{
+    width: 50%;
+    height: 50%;
+    margin-left: 200px;
+}
+
+@keyframes nazwaPrzykladowa {
+    0% {top: 0px; left: 0px};
+    20% {top: 0px; left: 100px}
+    40% {top: 0px; left: 100px}
+    60% {top: 100px; left: 100px}
+    80% {top: 100px; left: 0px}
+    100% {top: 0px; left: 0px}
+}
+</style>
+<body>
+    <button class="btn">Bez animacji</button>
+    <button class="btn btn--with-transition">Z animacja</button>
+    <div>
+        <img src="https://cdn.pixabay.com/photo/2016/06/21/15/55/nuclear-waste-1471361_1280.jpg" alt="">
+    </div>
+    <!-- <script>
+        const img = document.querySelector('img')
+        img.addEventListener('click', function animations(){
+            img.classList.toggle('img--animated')
+
+        })
+        
+
+    </script> -->
+</body>
+</html>
