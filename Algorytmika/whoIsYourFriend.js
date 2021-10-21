@@ -9,13 +9,22 @@ const people = ["Ania", "Hania", "Romek", "Jerzy", "Jack"]
      
 // })
 // }
+function isfiend (e){
+return e.length === 4
+}
 
-const newFriend = people.filter(e => {
-    const letters = 4
-    if(e.length <= letters){
-        return e
-    }
+function trueFr(arrayfriends){
+    let x = arrayfriends.filter(isfiend)
+    return x
+}
+
+// const trueFriend = people.filter(e => {
+//     const letters = 4
+//     if(e.length <= letters){
+//         return e
+//     }
     
-})
+// })
 
-console.log(newFriend)
+const realFr = trueFr(people)
+console.log(realFr)
