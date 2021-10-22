@@ -10,7 +10,7 @@ const people = ["Ania", "Hania", "Romek", "Jerzy", "Jack"]
 // })
 // }
 function isfiend (e){
-return e.length === 4
+ return e.length === 4
 }
 
 function trueFr(arrayfriends){
