@@ -10,8 +10,8 @@ dialogContainer.classList.add('show')
 })
 
 closeBtn.addEventListener('click', () => {
+    
     dialogContainer.classList.remove('show')
-
 })
 
 window.addEventListener('click', (e)=> {
