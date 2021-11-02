@@ -1,0 +1,15 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "be-awesome",
+      "isDone": "true"
+    },
+    {
+      "id": 1,
+      "title": "learn JS",
+      "isDone": "false"
+    }
+  ]
+  
+}
