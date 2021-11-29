@@ -1,5 +1,7 @@
 const taskList = document.querySelector('#tasks-list')
 
+//Tworzę funkcję która dane otrzymane z servera wrzuci do DOMa
+
 const buildTaskList = tasks => {
 const taskNodes = tasks.map(task => {
     const oneTask = document.createElement('li')
@@ -8,6 +10,17 @@ const taskNodes = tasks.map(task => {
     checkboxNode.checked = task.isDone
     const spanNote = document.createElement('span')
     spanNote.textContent = task.title
+
+    checkboxNode.addEventListener('change', () => {
+        fetch(`http://localhost:3000/tasks/${task.id}`), {
+            method: "PATCH",
+            headers: {
+                'Content-Types': 'aplication/json'
+            },
+            body: JSON.stringify({ isDone: checkboxNode.checked })
+        }
+        .then()
+    })
 
     oneTask.appendChild(checkboxNode)
     oneTask.appendChild(spanNote)

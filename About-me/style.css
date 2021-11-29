@@ -25,7 +25,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(./img/tlo.jpg);
+  background-image: ll;
   background-position: center;
   background-size: cover;
   z-index: -1;
