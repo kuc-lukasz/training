@@ -29,12 +29,13 @@ function handleDoughtMakingStart (){
     doughtInterval = setInterval(() => {
 
         if(doughtProgress === 0){
-            flourAmount -= 10;
-            displayFlourAmount()
-        }else if(flourAmount <= 0){
+            if(flourAmount < 10){
             displayFlourAmount()
             handleDoughtMakingStop()
             alert('Brak mąki!')
+        } 
+        flourAmount -= 10;
+        displayFlourAmount()
         }
 
       doughtProgress += 5

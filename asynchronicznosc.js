@@ -9,3 +9,4 @@ let przykladowaFunckcja = function () {
     console.log("Dobranoc będe pierwsza")
 }
 przykladowaFunckcja()
+
