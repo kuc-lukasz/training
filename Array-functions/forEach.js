@@ -4,6 +4,6 @@ function addSix(element, index){
     return element + " oraz index " + index
 }
 
-const newNumbers = numbers.forEach(addSix)
+const newNumbers = addSix(numbers)
 console.log(newNumbers)
 
