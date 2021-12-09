@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="index.js" defer type="module"></script> 
+</head>
+<body>
+    <form id="add-task-form">
+        <label for="task-name">Nazwa zadania</label>
+        <input id="task-name" name='taskName' type="text">
+        <button id="confirm-btn">Wyślij na serwer</button>
+    </form>
+    <ul id="list-of-tasks"></ul>
+    
+</body>
+</html>
