@@ -8,11 +8,23 @@
    
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
 
     <script src=index.js defer></script>
 </head>
 <body>
+    <form id="signUp-form">
+        <label for="email-input">E-mail</label>
+        <input id="email-input" type="email" name="email">
+        <label>Hasło</label>
+        <input type="password" name="" id="password-input">
+        
+        <button id="signIn-btn" >Zaloguj się </button>
+        <p><span id="email-info"></span></p>
 
+
+    </form>
+    <button id="reg-btn" onclick="signUp()">Zarejstruj się </button>
     <h1>ToDo Application</h1>
     <label for="toDo-input">Zadanie</label>
     <input id="toDo-input">
