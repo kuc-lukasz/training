@@ -15,7 +15,6 @@ const db = firebase.firestore();
 
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault()
-  console.log('dziala ? ')
 signIn();
 });
 
@@ -62,5 +61,28 @@ function signIn() {
   var user = userCredential.user;
   console.log("Zostałeś zalogowany na adres: " + email);
   })
-  .catch(error => console.error("Nie udało się zarejestrować"));
+  .catch((error) => console.error("Nie udało się zalogować"));
 }
+
+function signOut(){
+
+  firebase.auth().signOut()
+  .then(() => {
+    console.log('Zostałeś wylogowany!');
+    }).catch((error) => {
+    console.error(error.message)
+    });
+}
+
+// reagowanie na uzytkownika 
+firebase.auth().onAuthStateChanged(user => {
+  const emailField = document.getElementById('email-info')
+
+  if (user) {
+    emailField.textContent = "Witaj: " + user.email
+  // User is signed in.
+  } else {
+    emailField.textContent = "No user"
+  // No user is signed in.
+  }
+  });
