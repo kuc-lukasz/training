@@ -1,4 +1,6 @@
 const signUpForm = document.getElementById("signUp-form");
+const signUpBtn = document.getElementById('reg-btn')
+const listOfTasks = document.getElementById('list-of-tasks')
 
 const firebaseConfig = {
   apiKey: "AIzaSyAWJk317ehtYz0lXzA4CY5O-L-TIn2s4Xg",
@@ -60,6 +62,10 @@ function signIn() {
   .then((userCredential) => {
   var user = userCredential.user;
   console.log("Zostałeś zalogowany na adres: " + email);
+  signUpForm.style.display = "none"
+  signUpBtn.style.display = "none"
+  listOfTasks.style.display = "block"
+
   })
   .catch((error) => console.error("Nie udało się zalogować"));
 }
@@ -69,6 +75,9 @@ function signOut(){
   firebase.auth().signOut()
   .then(() => {
     console.log('Zostałeś wylogowany!');
+    signUpForm.style.display = "block"
+    signUpBtn.style.display = "block"
+    listOfTasks.style.display = "none"
     }).catch((error) => {
     console.error(error.message)
     });
@@ -86,3 +95,14 @@ firebase.auth().onAuthStateChanged(user => {
   // No user is signed in.
   }
   });
+
+  function logInGoogle (){
+    const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth()
+  .signInWithPopup(provider)
+  .then(result => console.log(result.credential.user))
+  .catch(error => {
+  console.error(error.message)
+  });
+  }
+  

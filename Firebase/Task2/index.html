@@ -20,17 +20,26 @@
         <input type="password" name="" id="password-input">
         
         <button id="signIn-btn" >Zaloguj się </button>
+       
         <p><span id="email-info" ></span></p>
+        
 
 
-    </form>
+    </form> 
+    <button id="login-google" onclick="logInGoogle ()" style="display: block; margin-bottom: 20px;">Logowanie kontem googlee</button>
+
     <button id="reg-btn" onclick="signUp()">Zarejstruj się </button>
     <button id="sign-out" onclick="signOut()">Wyloguj </button>
-    <h1>ToDo Application</h1>
+
+    <div id="list-of-tasks" style="display: none;">
+<h1>ToDo Application</h1>
     <label for="toDo-input">Zadanie</label>
     <input id="toDo-input">
     <button id="confirm-btn" onclick="addToDo()">Zatwierdz</button>
     <ul id="toDo-list"></ul>
+
+    </div>
+    
     
 </body>
 </html>
