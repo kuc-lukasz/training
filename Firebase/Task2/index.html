@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-   
+
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"/>
 
-    <script src=index.js defer></script>
-</head>
-<body>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    
     <form id="signUp-form">
-        <label for="email-input">E-mail</label>
-        <input id="email-input" type="email" name="email">
-        <label>Hasło</label>
-        <input type="password" name="" id="password-input">
-        
-        <button id="signIn-btn" >Zaloguj się </button>
-       
-        <p><span id="email-info" ></span></p>
-        
+      <label for="email-input">E-mail</label>
+      <input id="email-input" type="email" name="email" />
+      <label>Hasło</label>
+      <input type="password" name="" id="password-input" />
 
+      <button id="signIn-btn">Zaloguj się</button>
 
-    </form> 
-    <button id="login-google" onclick="logInGoogle()" style="display: block; margin-bottom: 20px;">Logowanie kontem googlee</button>
+      <p><span id="email-info"></span></p>
+    </form>
+    <button
+      id="login-google"
+      onclick="logInGoogle()"
+      style="display: block; margin-bottom: 20px"
+    >
+      Logowanie kontem googlee
+    </button>
 
-    <button id="reg-btn" onclick="signUp()">Zarejstruj się </button>
-    <button id="sign-out" onclick="signOut()">Wyloguj </button>
+    <button id="reg-btn" onclick="signUp()">Zarejstruj się</button>
+    <button id="sign-out" onclick="signOut()">Wyloguj</button>
 
-    <div id="list-of-tasks" style="display: none;">
-<h1>ToDo Application</h1>
-    <label for="toDo-input">Zadanie</label>
-    <input id="toDo-input">
-    <button id="confirm-btn" onclick="addToDo()">Zatwierdz</button>
-    <ul id="toDo-list"></ul>
-
+    <div id="list-of-tasks" style="display: none">
+      <h1>ToDo Application</h1>
+      <label for="toDo-input">Zadanie</label>
+      <input id="toDo-input" />
+      <button id="confirm-btn" onclick="addToDo()">Zatwierdz</button>
+      <ul id="toDo-list"></ul>
     </div>
-    
-    
-</body>
+    <div id="firebaseui-auth-container"></div>
+  </body>
 </html>
