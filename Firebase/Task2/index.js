@@ -33,15 +33,6 @@ function addToDo() {
   toDoTask.value = "";
 }
 
-db.collection("toDo-Infoshare").onSnapshot((snapshot) => {
-  const toDoList = document.getElementById("toDo-list");
-  toDoList.innerText = "";
-  snapshot.forEach((doc) => {
-    const toDoNode = document.createElement("li");
-    toDoNode.innerText = doc.data().Task;
-    toDoList.appendChild(toDoNode);
-  });
-});
 
 function signUp() {
   const email = document.getElementById("email-input").value;
@@ -84,12 +75,29 @@ function signOut(){
     });
 }
 
+// aby dodawane taski przypisywaly sie do jednej osoby a nie do wszystkich 
+let toDoSubscription;
 // reagowanie na uzytkownika 
 firebase.auth().onAuthStateChanged(user => {
   const emailField = document.getElementById('email-info')
 
+  if(toDoSubscription){
+    toDoSubscription()
+    toDoSubscription = null;
+  }
+
   if (user) {
     emailField.textContent = "Witaj: " + user.email
+    
+    toDoSubscription = db.collection("toDo-Infoshare").where('author', '==', user.uid).onSnapshot((snapshot) => {
+      const toDoList = document.getElementById("toDo-list");
+      toDoList.innerText = "";
+      snapshot.forEach((doc) => {
+        const toDoNode = document.createElement("li");
+        toDoNode.innerText = doc.data().Task;
+        toDoList.appendChild(toDoNode);
+      });
+    });
   // User is signed in.
   } else {
     emailField.textContent = "No user"
@@ -112,8 +120,7 @@ firebase.auth().onAuthStateChanged(user => {
   });
   }
 
-  var user = firebase.auth().currentUser.uid;
-  console.log(user);
+  
 
   
   
