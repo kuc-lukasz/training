@@ -28,6 +28,7 @@ function addToDo() {
 
   db.collection("toDo-Infoshare").add({
     Task: toDoTask,
+    author: firebase.auth().currentUser.uid,
   });
   toDoTask.value = "";
 }
@@ -96,13 +97,23 @@ firebase.auth().onAuthStateChanged(user => {
   }
   });
 
-  function logInGoogle (){
+  function logInGoogle (){ 
     const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
   .signInWithPopup(provider)
-  .then(result => console.log(result.credential.user))
+  .then((result) =>{
+    signUpForm.style.display = "none"
+  signUpBtn.style.display = "none"
+  listOfTasks.style.display = "block"
+    console.log(result.credential.user)
+  } )
   .catch(error => {
   console.error(error.message)
   });
   }
+
+  var user = firebase.auth().currentUser.uid;
+  console.log(user);
+
+  
   
