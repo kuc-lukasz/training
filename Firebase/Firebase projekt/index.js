@@ -48,13 +48,14 @@ function renderCafe(doc) {
 }
 
 // wyświetla kolekcje z firestore na bierząco i odrazu wywołuje funkcje ktora dokumenty te umieszcza na stronie
-db.collection("Cafes").where('city', "==", "Sopot")
-  .get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      renderCafe(doc);
-    });
-  });
+// where filtruje nam co dokladnie zostanie wyswietlone, mozemy np. filtrowac po miastach .where('city', "==", "Sopot") 
+//orderBy('name') - segreguje alfabetycznie po "name"
+
+// db.collection("Cafes").get().then((snapshot) => {
+//     snapshot.docs.forEach((doc) => {
+//       renderCafe(doc);
+//     });
+//   });
 
 // dodawanie dokumentu
 form.addEventListener('submit', (e) => {
@@ -67,3 +68,20 @@ form.addEventListener('submit', (e) => {
   nameInput.value = ""
   cityInput.value = ""
 });
+
+//naschuiwaanie na bięzace dane metodą onSnapshot
+db.collection('Cafes').orderBy('city').onSnapshot(snapshot => {
+let changes = snapshot.docChanges()
+
+
+  changes.forEach(change => {
+    
+    if(change.type == 'added'){
+     renderCafe(change.doc)
+    } else if (change.type == 'removed'){
+      let li = cafeList.querySelector('[data-id=' + change.doc.id + ']')
+      cafeList.removeChild(li)
+    }
+    
+  })
+})
