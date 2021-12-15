@@ -48,17 +48,13 @@ function renderCafe(doc) {
 }
 
 // wyświetla kolekcje z firestore na bierząco i odrazu wywołuje funkcje ktora dokumenty te umieszcza na stronie
-const refresh = () =>{
-  
-  db.collection("Cafes")
+db.collection("Cafes").where('city', "==", "Sopot")
   .get()
   .then((snapshot) => {
     snapshot.docs.forEach((doc) => {
       renderCafe(doc);
     });
   });
-}
-refresh()
 
 // dodawanie dokumentu
 form.addEventListener('submit', (e) => {
