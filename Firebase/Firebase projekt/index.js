@@ -85,3 +85,16 @@ let changes = snapshot.docChanges()
     
   })
 })
+
+// edytowanie poszczególnego wpisu 
+
+db.collection('Cafes').doc('id').update({
+  name: "nazwa restauracji"
+})
+
+// to jest to samo co wyżej ale akutalizuje nam nie poszczególną linie typu name lub city ale caly dokument, wiec jesli bysmy nie dodali city to cala tresc dokumentu to bylo name, a powyzej aktualizuje tylko dane pole
+
+// db.collection('Cafes').doc('id').set({
+//   name: "nazwa restauracji",
+//   city: "Sopot"
+// })
