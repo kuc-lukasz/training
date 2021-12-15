@@ -25,29 +25,31 @@ const m = (content) => {
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
       // tutaj dopiero po wyslaniu wiadomosci funkcja sie aktywuje 
-      get()
+      // get()
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
 };
 
-//get messages
+//get messages - czyli odczyt, czyli wyciąganie napisanych wiadomości 
+// jest to rowniez nasluchiwanie, ale dopiero po interakcji, czyli dodaniu czegosc 
 const get = () => {
-    // orderBy() sortuje po polu time
+// orderBy() sortuje po polu time
     // limit powoduje ze ograniczy wyswietlanie do 2 ostatnich wiadomosci 
-    //'desc' powoduje ze dostajemy te ostatnie wiadomosci, w tym wypadku dwie ostatnie wiadomosci 
-
+    //'desc' powoduje ze dostajemy te ostatnie wiadomosci, w tym wypadku dwie ostatnie wiadomosci
     console.clear()
     db.collection("messages").orderBy('time', 'desc').limit(5).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             const data = doc.data()
-            console.log(textField)
+            console.log(data.content)
+            
 
         });
     });
 }
-
+ 
+// Reagowanie na zmiane w kazdej kolekcji na bieżąco w czasie rzeczywistym 
 const ListenToMultiple = () => {
     db.collection("messages").orderBy('time', 'desc').limit(5).onSnapshot((querySnapshot) => {
 
@@ -57,8 +59,17 @@ const ListenToMultiple = () => {
 
         }
         );
-     
     });
 
 }
 ListenToMultiple()
+
+
+// Pobrać użytkownika z ID1 
+
+const getUser1 = () => {
+    db.collection('user').doc('1').get().then((doc) => {
+      console.log(dot.data())
+    })
+
+}
