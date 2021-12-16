@@ -4,8 +4,7 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     // pobranie dokumentow z firestore
     db.collection("guides")
-      .get()
-      .then((snapshot) => {
+      .onSnapshot((snapshot) => {
         setUpGuides(snapshot.docs);
         setupIU(user)
       });
@@ -15,6 +14,26 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
+//create new guide
+const createForm = document.querySelector('#create-form')
+
+createForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const title = document.querySelector("#title");
+  const content = document.querySelector('#content')
+
+    db.collection('guides').add({
+        title: title.value,
+        content: content.value
+    }).then (()=> {
+        const modal = document.querySelector("#modal-create");
+        M.Modal.getInstance(modal).close();
+        createForm.reset();
+    }).catch(er => {
+        console.log(er)
+    })
+
+}) 
 //Sign up
 const formSignUp = document.querySelector("#signup-form");
 
