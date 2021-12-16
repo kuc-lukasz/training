@@ -32,16 +32,21 @@ e.preventDefault()
     
 })
 
-// log-In
+// log-In 
+const logInForm = document.querySelector('#modal-login')
 
-const logIn = document.querySelector('#modal-login')
-logIn.addEventListener('click', (e) => {
+logInForm.addEventListener('submit', (e) => {
 e.preventDefault()
+//pobranie danych z inputow
+const email = document.querySelector('#login-email').value;
+const password = document.querySelector('#login-password').value;
 
     auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
 
-    var user = userCredential.user;
-    console.log(user);
+        const modal = document.querySelector('#modal-login');
+        M.Modal.getInstance(modal).close();
+        formSignUp.reset()
+        window.alert('Zostałeś zalogowany');
 
     }).catch((error) => { });
 })
