@@ -1,4 +1,16 @@
 const guideList = document.querySelector(".guides");
+const loggedOutLinks = document.querySelectorAll(".logged-out");
+const loggedInLinks = document.querySelectorAll(".logged-in");
+
+const setupIU = (user) => {
+  if (user) {
+    loggedInLinks.forEach(e => e.style.display = "block");
+    loggedOutLinks.forEach(e => e.style.display = "none");
+  } else {
+    loggedInLinks.forEach(e => e.style.display = "none");
+    loggedOutLinks.forEach(e => e.style.display = "block");
+  }
+};
 
 //setup guides Najpierw jest obiekt -> tablica z
 const setUpGuides = (data) => {
@@ -18,7 +30,7 @@ const setUpGuides = (data) => {
     });
     guideList.innerHTML = html;
   } else {
-    guideList.innerHTML = `<h5 class="center-align">Login to view guides</h5>`
+    guideList.innerHTML = `<h5 class="center-align">Login to view guides</h5>`;
   }
 };
 
