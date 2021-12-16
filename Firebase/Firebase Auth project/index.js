@@ -19,7 +19,11 @@ const firebaseConfig = {
   messagingSenderId: "902673576335",
   appId: "1:902673576335:web:3807e61ef7cdb1fbe15bfa", 
 };
-
+// to inicjalizuje nasze połaczenie z bazą firebase 
 firebase.initializeApp(firebaseConfig);
 
+// inicjalizacja autoryzacji 
+const auth = firebase.auth();
+
+// inicjalizacja bazy danych 
 db = firebase.firestore();
