@@ -4,7 +4,8 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     // pobranie dokumentow z firestore
     db.collection("guides")
-      .onSnapshot((snapshot) => {
+      .get()
+      .then((snapshot) => {
         setUpGuides(snapshot.docs);
         setupIU(user)
       });
