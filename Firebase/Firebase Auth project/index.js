@@ -4,13 +4,20 @@ const loggedInLinks = document.querySelectorAll(".logged-in");
 const accoutDetails = document.querySelector('.account-details')
 
 const setupIU = (user) => {
-  //acount info 
-  const html = `
-  <div><h5>Logged in as ${user.email}</h5></div>
-  `
-  accoutDetails.innerHTML = html
+ 
+
 
   if (user) {
+    // zalaczenie dodatkowych danych o uzytkowniku. Powiazaniu ich z konkretnym ID 
+    db.collection('users').doc(user.uid).get().then(doc => {
+    const html = `
+    <div><h5>Logged in as ${user.email}</h5></div>
+    <div><h5>About: ${doc.data().bio}</h5></div>
+    `
+    accoutDetails.innerHTML = html
+    })
+     //acount info 
+    
     loggedInLinks.forEach(e => e.style.display = "block");
     loggedOutLinks.forEach(e => e.style.display = "none");
   } else {

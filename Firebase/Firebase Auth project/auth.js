@@ -44,15 +44,22 @@ formSignUp.addEventListener("submit", (e) => {
   //pobranie danych z inputow
   const email = document.querySelector("#signup-email").value;
   const password = document.querySelector("#signup-password").value;
+  const bioData = document.querySelector("#signup-bio")
 
   //zarejestrowanie danych w bazie firebase
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
+      // dodanie nowej kolekcji danych przypisywanych do usera 
+      return db.collection('users').doc(userCredential.user.uid).set({
+        bio: bioData.value
+      })
+      
+    }).then(() => {
       const modal = document.querySelector("#modal-signup");
-      M.Modal.getInstance(modal).close();
-      formSignUp.reset();
-    });
+    M.Modal.getInstance(modal).close();
+    formSignUp.reset();
+    })
 });
 
 //Log-out
