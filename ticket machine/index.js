@@ -1,8 +1,6 @@
 const search = document.querySelector("#form-search");
 
-const getDataFromResponse = (response) => {
-  return response.json();
-};
+const getDataFromResponse = response => response.json();
 
 const sorting = data => data.sort((a, b) => (a.distance > b.distance ? 1 : -1));
 const displayCities = (data) => {
@@ -30,11 +28,9 @@ getCities();
 search.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchingInput = search["inputSearch"].value;
-  console.log(searchingInput.value);
 
   fetch("./data/cities.json")
     .then(getDataFromResponse)
-    
     .then(sorting)
     .then(data => data.filter(doc => doc.city.includes(searchingInput)))
     .then(displayCities);
