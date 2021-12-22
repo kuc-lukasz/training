@@ -1,7 +1,8 @@
-const getJsonFile = data => data.json();
-const students = (data) => { return data};
+const getStudentFiles = (response => response.json())
+const getStudentData = (data => { return data})
 
-const displayNamesOfStudents = (data) => {
+const displayNamesOfStudents = (students) => {
+    
     const listOfStudents = document.getElementById('listOfStudents')
     const theadTag = document.createElement('thead')
     const trTag = document.createElement('tr')
@@ -10,13 +11,14 @@ const displayNamesOfStudents = (data) => {
     const surename = document.createElement('th')
     const city = document.createElement('th')
     const averageMarks = document.createElement('th')
+    const studentGroups = document.createElement('th')
 
     id.innerText = 'id'
     name.innerText = 'name'
     surename.innerText = 'surename'
     city.innerText = 'city'
     averageMarks.innerText = "avg marks"
-    
+    studentGroups.innerText = "groups"
 
     listOfStudents.appendChild(theadTag)
     theadTag.appendChild(trTag)
@@ -25,9 +27,11 @@ const displayNamesOfStudents = (data) => {
     trTag.appendChild(surename)
     trTag.appendChild(city)
     trTag.appendChild(averageMarks)
-    
+    trTag.appendChild(studentGroups)
 
-    data.forEach((doc) => {
+
+    students.forEach((doc) => {
+
         let tBodyTag = document.createElement('tbody')
         let trTag = document.createElement('tr')
 
@@ -35,6 +39,7 @@ const displayNamesOfStudents = (data) => {
         let studentName = document.createElement('td')
         let studentSureName = document.createElement('td')
         let studentCity = document.createElement('td')
+        let studentGroups = document.createElement('td')
         
         
         studentID.innerText = doc.id
@@ -50,11 +55,13 @@ const displayNamesOfStudents = (data) => {
         let avg = document.createElement('td')
         avg.innerText = avgStudent
 
+
         trTag.appendChild(studentID)
         trTag.appendChild(studentName)
         trTag.appendChild(studentSureName)
         trTag.appendChild(studentCity)
         trTag.appendChild(avg)
+        trTag.appendChild(studentGroups)
         
         console.log(avgStudent)
         
@@ -71,7 +78,6 @@ const displayNamesOfStudents = (data) => {
 }
 
 fetch('./data/students.json')
-.then(getJsonFile)
-.then(students)
+.then(getStudentFiles)
+.then(getStudentData)
 .then(displayNamesOfStudents)
-
