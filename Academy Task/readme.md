@@ -3,16 +3,11 @@
 Challenge 1
 Wykorzystaj pobrane z serwera dane studentów i wyświetl na stronie listę imion studentów.
 
-Hints
-wykorzystaj znaczniki <ul> oraz <li>
-wykorzystaj funkcję Array.prototype.map do zamiany obiektów studentów na ich imiona
-wykorzystaj funkcję Array.prototype.forEach do dodania każdego z imion do dokumentu
-
 Challenge 2
 Zastąp listę studentów tabelą i w osobnych kolumnach wyświetl wartości atrybutów: id, name, surname oraz city.
 
 Hints
-wykorzystaj znaczniki <table>, <thead>, <tbody>, <tr>, <th> oraz <td>
+wykorzystaj znaczniki `<table>, <thead>, <tbody>, <tr>, <th> oraz <td>`
 
 Challenge 3
 W danych studentów znajduje się pole z ich ocenami. Każdy ze studentów posiada pole grades. Jego wartością jest tablica obiektów. Każdy z tych obiektów posiada 2 atrybuty: value oraz date.
