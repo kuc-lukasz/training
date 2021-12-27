@@ -1,5 +1,6 @@
 const chatContainer = document.getElementById('chat-container')
 let textField = document.getElementById('text-field')
+const form = document.getElementById('form')
 
 const firebaseConfig = {
   apiKey: "AIzaSyA_a27uzrIRBlqjIiUe-No-9xDQHvdfI3c",
@@ -15,22 +16,36 @@ const db = firebase.firestore();
 
 db.collection("messages");
 
-const m = (content) => {
-  db.collection("messages")
-    .add({
-      content,
-      // dodaje nam czas do kontentu, dzieki czemu wiadomosci sie beda sortowac 
-      time: +new Date()
-    })
-    .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-      // tutaj dopiero po wyslaniu wiadomosci funkcja sie aktywuje 
-      // get()
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
-};
+form.addEventListener('submit', (e)=> {
+  e.preventDefault()
+
+  const content = textField.value
+ 
+    db.collection("messages")
+      .add({
+        content,
+        // dodaje nam czas do kontentu, dzieki czemu wiadomosci sie beda sortowac 
+        time: +new Date()
+      })
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        // tutaj dopiero po wyslaniu wiadomosci funkcja sie aktywuje 
+        // get()
+        
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
+    
+    clearField()
+  
+})
+
+const clearField = ()=> {
+  textField.innerHTML = " "
+}
+
+
 
 //get messages - czyli odczyt, czyli wyciąganie napisanych wiadomości 
 // jest to rowniez nasluchiwanie, ale dopiero po interakcji, czyli dodaniu czegosc 
@@ -51,10 +66,16 @@ const get = () => {
  
 // Reagowanie na zmiane w kazdej kolekcji na bieżąco w czasie rzeczywistym 
 const ListenToMultiple = () => {
-    db.collection("messages").orderBy('time', 'desc').limit(5).onSnapshot((querySnapshot) => {
-
+    db.collection("messages").orderBy('time', 'desc').limit(10).onSnapshot((querySnapshot) => {
+      const chatContainer = document.getElementById('chat-container')
+      chatContainer.innerText = ""
         querySnapshot.forEach((doc) => {
             const data = doc.data()
+            let liContent = document.createElement('li')
+            liContent.innerText = data.content
+            console.log(liContent)
+            chatContainer.appendChild(liContent)
+            
             console.log(data.content);
 
         }

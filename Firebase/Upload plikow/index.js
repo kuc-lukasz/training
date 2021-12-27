@@ -51,7 +51,9 @@ ref.listAll()
   .then(url => {
       console.log(url)
   })
-
+ function addImg = () => {
+     
+ }
   listRef.child('avatar.png').getDownloadURL()
   .then(url => {
       console.log(url)
@@ -59,9 +61,6 @@ ref.listAll()
     let img = document.createElement('img')
     img.setAttribute('src', url)
    document.body.appendChild(img)
-
-      let xhr = new XMLHttpRequest()
-      xhr.responseType = "blob"
 
   })
 
