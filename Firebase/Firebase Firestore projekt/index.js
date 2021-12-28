@@ -1,5 +1,5 @@
-const cafeList = document.querySelector("#cafe-list");
-const form = document.querySelector("#add-cafe-form");
+const cafeList = document.querySelector("#place-list");
+const form = document.querySelector("#add-place-form");
 const nameInput = document.querySelector('.name')
 const cityInput = document.querySelector('.city')
 
@@ -73,8 +73,9 @@ form.addEventListener('submit', (e) => {
 db.collection('Cafes').orderBy('city').onSnapshot(snapshot => {
 let changes = snapshot.docChanges()
 
-
   changes.forEach(change => {
+    console.log(changes.length)
+
     
     if(change.type == 'added'){
      renderCafe(change.doc)

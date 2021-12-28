@@ -42,7 +42,7 @@ form.addEventListener('submit', (e)=> {
 })
 
 const clearField = ()=> {
-  textField.innerHTML = " "
+  textField.innerHTML = ""
 }
 
 

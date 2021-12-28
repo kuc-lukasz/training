@@ -15,9 +15,10 @@ h1{
     background: #fff;
     max-width: 960px;
     margin: 30px auto;
-    padding:  20px 30px;
-    border-radius: 10px 120px 10px 10px;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
+    padding:  50px 50px;
+    border-radius: 120px 120px 10px 10px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
 }
 
 ul{
@@ -27,13 +28,15 @@ ul{
 
 li{
     padding: 20px;
-    background: #f6f6f6;
+    background: #e7e7e7;
     font-size: 20px;
-    color: #555;
+    color: rgb(54, 54, 54);
     position: relative;
-    border-bottom: 1px solid #e6e6e6;
     height: 46px;
     margin-right: 25px;
+    margin: 10px;
+    
+    border-radius: 5px;
 }
 
 li:nth-child(even){
@@ -54,17 +57,18 @@ li span:nth-child(2){
 li div{
     position: absolute;
     top: 20px;
-    right: 0px;
+    right: 20px;
     width: 40px;
     text-align: center;
     padding: 10px 0;
     font-weight:  bold;
     cursor:  pointer;
     background-color: inherit;
-    border: 3px solid #05a59d;
+    /* border: 3px solid #05a59d; */
     border-radius: 20px;
-    box-shadow: 0px 0px 2px 2px lightblue;
+    /* box-shadow: 0px 0px 2px 2px lightblue; */
     color: #056964;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 form input{
@@ -72,7 +76,7 @@ form input{
     width: 38%;
     margin: 0;
     border: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #05a59d;
     margin: 0 1%;
     padding: 10px;
     display: block;
@@ -82,7 +86,7 @@ form input{
 
 form input:focus{
     outline: none;
-    border-bottom: 3px solid #88236f;
+    border-bottom: 3px solid #05a59d;
     padding-bottom: 8px;
     transition: all ease 0.2s;
 }
@@ -95,13 +99,13 @@ form:after{
 
 button{
     border: 0;
-    background: #fff;
-    border-radius: 10px;
+    background: #05a59d;
+    border-radius: 4px;
     padding: 13px;
     width: 14%;
-    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.1);
     font-weight: bold;
     font-family: ubuntu;
     letter-spacing: 1px;
-    color: #999;
+    color: rgb(255, 255, 255);
 }
