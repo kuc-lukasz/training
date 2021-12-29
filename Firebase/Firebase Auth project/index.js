@@ -11,8 +11,8 @@ const setupIU = (user) => {
     // zalaczenie dodatkowych danych o uzytkowniku. Powiazaniu ich z konkretnym ID 
     db.collection('users').doc(user.uid).get().then(doc => {
     const html = `
-    <div><h5>Logged in as ${user.email}</h5></div>
-    <div><h5>About: ${doc.data().bio}</h5></div>
+    <div><h6>Logged in as <h5 style="display: block; font-weight: 600; margin-top: -5px; margin-bottom: 50px;">${user.email}</h5></h6></div>
+    <div><h6>About me: <h5 style="display: block; font-weight: 600; margin-top: -5px; margin-bottom: 50px;">${doc.data().bio}</h5></h6></div>
     `
     accoutDetails.innerHTML = html
     })
@@ -37,16 +37,16 @@ const setUpGuides = (data) => {
       const guide = doc.data();
 
       const li = `
-  <li>
-          <div class="collapsible-header grey lighten-4">${guide.title}</div>
-          <div class="collapsible-body white">${guide.content}</div>
+  <li >
+          <div class="collapsible-header teal lighten-2" style="color: #ffffff">${guide.title}</div>
+          <div class="collapsible-body grey lighten-3" style="font-weight: 400; border-left: 3px double rgb(77, 182, 182); border-right: 3px double rgb(77, 182, 182)">${guide.content}</div>
   </li>
   `;
       html += li;
     });
     guideList.innerHTML = html;
   } else {
-    guideList.innerHTML = `<h5 class="center-align">Login to view guides</h5>`;
+    guideList.innerHTML = `<h5 class="center-align" style="font-weight: 800; color: teal; ">Login to view guides</h5>`;
   }
 };
 
