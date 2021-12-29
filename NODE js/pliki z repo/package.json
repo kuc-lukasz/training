@@ -1,0 +1,23 @@
+{
+  "name": "node-kurs",
+  "version": "1.0.0",
+  "description": "1. [Co to w ogóle jest ten Node.js?](#introduction)\r 2. [Co to znaczy, że Node.js jest wieloplatformowy?](#multiplatform)\r 3. [Podstawy pracy z Node.js - uruchomienie środowiska i pierwszy kod!](#start)\r 4. [Import i export w Node.js](#importexport)\r     1. [Zadanie 1](#taskone)\r 5. [Praca z plikami i systemem](#filesystem)\r     1. [Zadanie 2](#tasktwo)\r     2. [Zadanie 3](#taskthree)\r     3. [Zadanie 4](#taskfour)\r 6. [Praca z backendem](#backend)\r     1. [Zadanie 5](#taskfive)\r     2. [Zadanie 5](#tasksix)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "npx nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infoshareacademy/jfddr3-workshops-nodejs.git"
+  },
+  "author": "Filip Chamier-Ciemiński",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infoshareacademy/jfddr3-workshops-nodejs/issues"
+  },
+  "homepage": "https://github.com/infoshareacademy/jfddr3-workshops-nodejs#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
