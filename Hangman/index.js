@@ -23,7 +23,8 @@ function generateAlphabet() {
     for (let i = 97; i <= 122; i += 1){
         alphabetList.push(String.fromCharCode(i))
     }
-    console.log(alphabetList)
+
+    return alphabetList
 }
 
 console.log(generateAlphabet())
