@@ -1,4 +1,6 @@
-let word = "html"
+let words = ["html", "react", "css", "javascript"]
+
+let word = words[1]
 
 let wordsUsed = []
 
@@ -11,10 +13,20 @@ function checkTheLetter (letter, word) {
     return word.includes(letter)
 }
 
-
 function howManyTimeOccurs (letter, word) {
     return [...word].filter(singleword => singleword === letter).length
 }
+
+function generateAlphabet() {
+    let alphabetList = []
+
+    for (let i = 97; i <= 122; i += 1){
+        alphabetList.push(String.fromCharCode(i))
+    }
+    console.log(alphabetList)
+}
+
+console.log(generateAlphabet())
 
 function writeLetter (letter) {
 
@@ -48,3 +60,4 @@ function writeLetter (letter) {
     }
 
 }
+
