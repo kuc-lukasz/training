@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-<script>
-
 const user1 = {
     id: 1,
     name: "Luka",
@@ -22,6 +9,15 @@ const user2 = {
     name: "Seba",
     age: 13,
 }
+
+const newUser = JSON.stringify(user2)
+console.log(user2)
+console.log(newUser)
+
+const newUserAfterParse = JSON.parse(newUser)
+console.log(newUserAfterParse)
+
+
 function saveToLs (user) {
 const userAsString = JSON.stringify(user);
 window.localStorage.setItem(user.id, userAsString)
@@ -32,9 +28,6 @@ function getfromLS (id) {
     const newUser = window.localStorage.getItem(id)
    return JSON.parse(newUser)
 }
- 
-console.log(getfromLS(1))
 
-
-</script>
-</html>
+// console.log(user1)
+// console.log(saveToLs(user1))
