@@ -1,8 +1,12 @@
+const keyboard = document.querySelector('.keyboard')
+const wordBox = document.querySelector('.word')
+const wrongMessage = document.querySelector('.wrongMessage')
+
 let words = ["html", "react", "css", "javascript"]
 
 let word = words[1]
 
-let wordsUsed = []
+let lettersUsed = []
 
 let guessedLetters = 0
 
@@ -17,35 +21,55 @@ function howManyTimeOccurs (letter, word) {
     return [...word].filter(singleword => singleword === letter).length
 }
 
-function generateAlphabet() {
+const alphabet = () =>  {
     let alphabetList = []
 
     for (let i = 97; i <= 122; i += 1){
         alphabetList.push(String.fromCharCode(i))
     }
 
-    return alphabetList
+    return alphabetList.forEach(data => {
+        let div = document.createElement('div')
+        div.innerText = data
+        keyboard.appendChild(div)
+    })
+    
 }
 
-console.log(generateAlphabet())
+alphabet()
+keyboard.addEventListener('click', (e)=> {
+    let button = e.target.innerText
+    console.log(button)
+
+
+    writeLetter(button)
+})
+
+wordBox.innerText = word
 
 function writeLetter (letter) {
 
-    if(wordsUsed.includes(letter)) {
-        throw new Error('This wrote this later before!')
-
+    if(lettersUsed.includes(letter)) {
+        const information = document.createElement('p')
+        information.style.color = "red"
+        information.style.fontSize = "large"
+        information.innerText = "You used this letter before"
+        console.log(information)
+        wrongMessage.appendChild(information)
     }
 
-    wordsUsed.push(letter)
+    lettersUsed.push(letter)
 
-    console.log(wordsUsed)
+    console.log(lettersUsed)
 
     let occurs = howManyTimeOccurs(letter, word)
     
     
 
     if(checkTheLetter(letter, word)){
+        letter.style.color = 'red'
         guessedLetters += occurs
+        console.log(word)
 
         console.log(guessedLetters)
     } else {
@@ -62,3 +86,5 @@ function writeLetter (letter) {
 
 }
 
+
+// keyboard.appendChild(newKeyboad)
