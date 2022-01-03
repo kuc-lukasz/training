@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,65 @@
     <title>Document</title>
     <script src="index.js" defer></script>
 </head>
-<body>
-    <button id="button">Generuj</button>
-    <table id="listOfNumbers">
-        <thead>
-        <th>
-            <th>
-                Parzyste
-            </th>
-            <th>
-                Nieparzyste
-            </th>
-        </th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
+<style>
+    *{
+        width: 100vw;
+        margin: 0 auto;
+    }
+    div{
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    td{
+        margin: 2px;
+        display: inline-block;
+        text-align: center;
+    }
 
-            </td>
-        </tr>
-    </tbody>
+    button {
+        width: 100px;
+        height: 50px;
+        margin: 20px;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div>
+    <button id="button">Generuj</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Parzyste
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="evenNumb">
+            </tr>
+        </tbody>
     </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Nieparzyste
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="oddNumb">
+            </tr>
+        </tbody>
+    </table>
+</div>
 </body>
+
 </html>
