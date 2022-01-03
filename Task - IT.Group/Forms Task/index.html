@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="form" class="form" method="post">
+        <label for="title">Tytuł książki</label>
+        <input type="text" id="title" minlength="1" required>
+
+        <label for="author">Autor książki</label>
+        <input type="text" id="author" minlength="3" required>
+
+
+        <select id='priority' class="priority" required>
+            <option value="">Priorytet przeczytania</option>
+
+            <option value="1" required>1</option>
+            <option value="2" required>2</option>
+            <option value="3" required>3</option>
+            <option value="4" required>4</option>
+            <option value="5" required>5</option>
+        </select>
+
+        <select id='category' class="category" required>
+            <option value="">Kategoria</option>
+            <option value="Biografia">Biografia</option>
+            <option value="Biznes, ekononomia">Biznes, ekononomia</option>
+            <option value="Poradnik">Poradnik</option>
+        </select>
+
+        <button type="submit">Wyślij</button>
+    </form>
+
+    <div class="booksContainer">
+        <table>
+            <thead>
+                <tr>
+                    <th class="headings">
+                        Tytuł
+                    </th>
+                    <th class="headings">
+                        Author
+                    </th>
+                    <th class="headings">
+                        Priorytet
+                    </th>
+                    <th class="headings">
+                        Kategoria
+                    </th>
+                </tr>
+            </thead>
+
+        </table>
+
+        <table id="bookList">
+            <tbody>
+                <tr>
+                    <td class="about-book">
+                        aa
+                    </td>
+                    <td>
+                        aa
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

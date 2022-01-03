@@ -1,0 +1,79 @@
+body{
+    background-color: aliceblue;
+}
+.form{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px auto 10px auto;
+    padding: 30px;
+    background-color: white;
+    border: 0px solid black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px 1px #2b1212;
+}
+
+button{
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(61, 32, 32);
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+label{
+    margin: 15px 0px 5px 0px;
+}
+
+.booksContainer{
+width: 500px;
+display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+    padding: 30px;
+}
+
+input, select{
+    background-color: aliceblue;
+    width: 300px;
+    height: 40px;
+    border: 0px solid rgb(221, 12, 12);
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: 0px 0px 5px 1px #2b1212;
+    text-align: center;
+    outline: none;
+}
+
+.book-title, .book-author, .priority, .category{
+
+    padding: 10px;
+    margin: 20px;
+
+
+}
+
+.headings{
+width: 60px;
+height: 30px;
+margin: 10px;
+padding: 10px;
+
+}
+
+.about-book{
+    width: 60px;
+    height: 30px;
+    margin: 10px;
+padding: 10px;
+}
+
