@@ -12,30 +12,37 @@
 
 <body>
     <form id="form" class="form" method="post">
-        <label for="title">Tytuł książki</label>
-        <input type="text" id="title" minlength="1" required>
 
-        <label for="author">Autor książki</label>
-        <input type="text" id="author" minlength="3" required>
+        <div class="book-title">
+            <label for="title">Tytuł książki</label>
+            <input type="text" id="title" minlength="1" required>
+        </div>
 
+        <div class="book-author">
+            <label for="author">Autor książki</label>
+            <input type="text" id="author" minlength="3" required>
+        </div>
 
-        <select id='priority' class="priority" required>
-            <option value="">Priorytet przeczytania</option>
+        <div class="priority">
+            <select id='priority' required>
+                <option value="">Priorytet przeczytania</option>
 
-            <option value="1" required>1</option>
-            <option value="2" required>2</option>
-            <option value="3" required>3</option>
-            <option value="4" required>4</option>
-            <option value="5" required>5</option>
-        </select>
+                <option value="1" required>1</option>
+                <option value="2" required>2</option>
+                <option value="3" required>3</option>
+                <option value="4" required>4</option>
+                <option value="5" required>5</option>
+            </select>
+        </div>
 
-        <select id='category' class="category" required>
-            <option value="">Kategoria</option>
-            <option value="Biografia">Biografia</option>
-            <option value="Biznes, ekononomia">Biznes, ekononomia</option>
-            <option value="Poradnik">Poradnik</option>
-        </select>
-
+        <div class="category category1">
+            <select id='category' required>
+                <option value="">Kategoria</option>
+                <option value="Biografia">Biografia</option>
+                <option value="Biznes, ekononomia">Biznes, ekononomia</option>
+                <option value="Poradnik">Poradnik</option>
+            </select>
+        </div>
         <button type="submit">Wyślij</button>
     </form>
 
@@ -63,12 +70,6 @@
         <table id="bookList">
             <tbody>
                 <tr>
-                    <td class="about-book">
-                        aa
-                    </td>
-                    <td>
-                        aa
-                    </td>
                 </tr>
             </tbody>
         </table>
