@@ -29,5 +29,9 @@ function getfromLS (id) {
    return JSON.parse(newUser)
 }
 
+const nowyZLS = getfromLS(id)
+
+
 // console.log(user1)
 // console.log(saveToLs(user1))
+console.log(nowyZLS)
