@@ -1,0 +1,32 @@
+// paleta
+$mainColor: cyan;
+$secondaryColor: red;
+$borderColor: green;
+
+$smallGap: 4px;
+$bigGap: 16px;
+
+// zindex
+$zIndexNavbar: 1;
+$zIndexPopup: 2;
+
+//  breakpoint
+$mobile: 480px;
+$tablet: 800px;
+$desktop: 1200px;
+$mac: 1366px;
+
+.root {
+  font-size: 30px;
+  background: $secondaryColor;
+  .container {
+    padding: $bigGap;
+    border: 1px solid $mainColor;
+    div {
+      li {
+        color: $mainColor;
+        border: 1px solid black;
+      }
+    }
+  }
+}
