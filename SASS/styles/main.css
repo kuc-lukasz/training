@@ -1,14 +1,14 @@
 .root {
-  font-size: 30px;
-  background: red;
+    font-size: 30px;
+    background: red;
 }
 .root .container {
-  padding: 16px;
-  border: 1px solid cyan;
+    padding: 16px;
+    border: 1px solid cyan;
 }
 .root .container div li {
-  color: cyan;
-  border: 1px solid black;
+    color: cyan;
+    border: 1px solid black;
 }
 
 /*# sourceMappingURL=main.css.map */

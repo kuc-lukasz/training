@@ -27,7 +27,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sayHello\": () => (/* binding */ sayHello)\n/* harmony export */ });\nvar sayHello = function sayHello() {\n  console.log(\"witaj świecie\");\n};\n\n//# sourceURL=webpack://sass/./src/hello.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sayHello\": () => (/* binding */ sayHello)\n/* harmony export */ });\nvar sayHello = function sayHello() {\n  console.log('witaj świecie');\n};\n\n//# sourceURL=webpack://sass/./src/hello.js?");
 
 /***/ }),
 

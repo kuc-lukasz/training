@@ -1,4 +1,3 @@
 export const sayHello = () => {
-    console.log("witaj świecie")
-};
-
+    console.log('witaj świecie')
+}
