@@ -1,0 +1,25 @@
+.film {
+  border: 0px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+  width: 400px;
+  background-color: lightgrey;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px 5px #8f8f8f;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 5px #8f8f8f;
+}
+
+.describe {
+  margin-top: -20px;
+}

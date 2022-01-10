@@ -20,14 +20,6 @@ const Task1 = () => {
       <p> {film.Genre} </p>
       <p> {film.Director} </p>
     </div>
-    <div>
-      <h4>
-        {filmsData.map((element) => (
-          <p>{element.Title}</p>
-        ))}
-      </h4>
-      
-    </div>
   );
 };
 

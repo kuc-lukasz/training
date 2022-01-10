@@ -11,19 +11,16 @@ const Task2 = () => {
 
   // Tu wstawcie swój kod
 
-  const films = filmsData.map((e) => {
-    return (
-      <div>
-        <h4>
-          {e.Title}
-          <span> {e.Year}</span>
-        </h4>
-        <p>{e.Awards}</p>
-        <p>{e.Genre}</p>
-        <p>{e.Director}</p>
-      </div>
-    );
-  });
+  const films = filmsData.map((e) => (
+    <div>
+      <h4>
+        {e.Title} {e.Year}
+      </h4>
+      <p>{e.Genre}</p>
+      <p>{e.Awards}</p>
+      <p>{e.Director}</p>
+    </div>
+  ));
 
   return <>{films}</>;
 };

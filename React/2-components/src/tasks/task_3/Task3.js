@@ -4,10 +4,31 @@
 // Poniżej umieszczam komponent z przykładem jak można dodać stylowanie.
 
 import React from "react";
-import "./Task3.css";
+import "./styleTask3.css";
+import { getFilmsList } from "../../filmsData";
+
+const Image = (props) => {
+  return <img alt="poster" src={props.src}></img>;
+};
 
 const Task3 = () => {
-  return <div className="container"></div>;
+  const filmsData = getFilmsList();
+
+  // Tu wstawcie swój kod
+
+  const films = filmsData.map((e) => (
+    <div className="film">
+      <h4>
+        {e.Title} ({e.Year})
+      </h4>
+      <Image src={e.Poster} />
+      <p>{e.Genre}</p>
+      <p>{e.Awards}</p>
+      <p>{e.Director}</p>
+    </div>
+  ));
+
+  return <>{films}</>;
 };
 
 export default Task3;
