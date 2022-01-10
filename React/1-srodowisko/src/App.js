@@ -8,7 +8,7 @@ const NewComponent = () => {
 
   return (
     <div>
-      <h1>Jestem nowym komponentem</h1>
+      <h3>Jestem nowym komponentem</h3>
       <h5> {count} </h5>
       <button
         onClick={() => {
@@ -64,6 +64,9 @@ function App() {
         <button onClick={handleReset}>Reset</button>
         <button onClick={handleAdd}>Dodaj 1</button>
       </div>
+      <NewComponent />
+      <NewComponent />
+      <NewComponent />
       <NewComponent />
     </div>
   );
