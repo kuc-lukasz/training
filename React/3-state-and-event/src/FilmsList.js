@@ -2,7 +2,7 @@ import "./FilmsList.css";
 import DescriptionField from "./DescriptionField";
 import Image from "./Image";
 
-const FilmsList = ({ dataSrc }) => {
+const FilmsList = ({ dataSrc, dataSorted }) => {
   return (
     <>
       {dataSrc.map((e) => (
