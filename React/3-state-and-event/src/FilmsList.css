@@ -39,5 +39,6 @@ img {
 }
 
 .selected {
-  background-color: blue;
+  background-color: lightblue;
+  color: aliceblue;
 }

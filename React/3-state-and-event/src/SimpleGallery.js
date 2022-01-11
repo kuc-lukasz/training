@@ -4,16 +4,20 @@ import "./FilmsList.css";
 const SimpleGallery = () => {
   const images = [
     {
-      url: "123",
-      name: "Photo1",
+      url: "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      name: "Film1",
     },
     {
-      url: "123",
-      name: "Photo2",
+      url: "https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      name: "Film2",
     },
     {
-      url: "123",
-      name: "Photo3",
+      url: "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+      name: "Film3",
+    },
+    {
+      url: "https://m.media-amazon.com/images/M/MV5BMzAwNjU1OTktYjY3Mi00NDY5LWFlZWUtZjhjNGE0OTkwZDkwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+      name: "Film4",
     },
   ];
 
@@ -22,10 +26,26 @@ const SimpleGallery = () => {
   const handleClick = (index) => {
     setSelected(index);
   };
+
+  const newData = images.map((photo, index) => {
+    return (
+      <div>
+        <button
+          className={selectedPhoto === index && "selected"}
+          onClick={() => handleClick(index)}
+        >
+          {photo.name}
+        </button>
+      </div>
+    );
+  });
+
   return (
     <div>
-      <p>{images[selectedPhoto].name}</p>
-      <button
+      <img alt="poster" src={images[selectedPhoto].url} />
+      {newData}
+      {/*             
+      <button 
         className={selectedPhoto === 0 && "selected"}
         onClick={() => handleClick(0)}
       >
@@ -42,7 +62,7 @@ const SimpleGallery = () => {
         onClick={() => handleClick(2)}
       >
         3
-      </button>
+      </button> */}
     </div>
   );
 };
