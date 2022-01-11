@@ -17,8 +17,8 @@ const FilmsLibrary = () => {
   const filmsData = getFilmsList();
   const FilmsAfter2000 = filmsData.filter((film) => film.Year >= 2000);
   const FilmsBefore2000 = filmsData.filter((film) => film.Year < 2000);
-  const FilmsAscending = filmsData.sort((a, b) =>
-    ascending ? a.Year - b.Year : b.Year - alert.Year
+  const FilmsAscending = filmsData.sort((film, nextFilm) =>
+    ascending ? film.Year - nextFilm.Year : nextFilm.Year - film.Year
   );
   // const FilmsDescending = filmsData.sort((a, b) =>
   //   !ascending ? a.Year - b.Year : b.Year - alert.Year
@@ -32,7 +32,9 @@ const FilmsLibrary = () => {
     <div className="main-field">
       <SimpleGallery />
       <div>
-        <button onClick={handleClick}>Sort</button>
+        <button style={{ display: "block" }} onClick={handleClick}>
+          {ascending ? "First Newest" : "First Oldest"}
+        </button>
         {/* <button onClick={handleClick}>Descending</button> */}
         <h4>Filmy przed 2000</h4>
         <FilmsList dataSrc={FilmsAscending} />

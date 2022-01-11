@@ -1,8 +1,9 @@
 const search = document.querySelector("#form-search");
 
-const getDataFromResponse = response => response.json();
+const getDataFromResponse = (response) => response.json();
 
-const sorting = data => data.sort((a, b) => (a.distance > b.distance ? 1 : -1));
+const sorting = (data) =>
+  data.sort((a, b) => (a.distance > b.distance ? 1 : -1));
 const displayCities = (data) => {
   const listOfCities = document.querySelector(".list-of-cities");
   listOfCities.innerHTML = "";
@@ -14,7 +15,8 @@ const displayCities = (data) => {
   });
 };
 
-const filtering = data => data.filter(doc => doc.city.includes(searchingInput))
+const filtering = (data) =>
+  data.filter((doc) => doc.city.includes(searchingInput));
 
 const getCities = () => {
   fetch("./data/cities.json")
@@ -32,6 +34,6 @@ search.addEventListener("keyup", (e) => {
   fetch("./data/cities.json")
     .then(getDataFromResponse)
     .then(sorting)
-    .then(data => data.filter(doc => doc.city.includes(searchingInput)))
+    .then((data) => data.filter((doc) => doc.city.includes(searchingInput)))
     .then(displayCities);
 });
