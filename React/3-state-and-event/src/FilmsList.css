@@ -1,0 +1,43 @@
+.main-field {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.main-field > div {
+  margin: 20px;
+}
+
+.film {
+  border: 0px solid blue;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  background-color: lightgrey;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px 5px #8f8f8f;
+}
+
+img {
+  width: 30%;
+  height: 30%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 5px #8f8f8f;
+}
+.descriptionField {
+  margin: -5px;
+}
+.describe {
+  margin-top: -20px;
+}
+
+.selected {
+  background-color: blue;
+}

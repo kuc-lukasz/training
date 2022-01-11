@@ -1,6 +1,6 @@
 const DescriptionField = ({ label, value }) => {
   return (
-    <div>
+    <div className="descriptionField">
       <h4>{label}</h4>
       <p className="describe">{value}</p>
     </div>

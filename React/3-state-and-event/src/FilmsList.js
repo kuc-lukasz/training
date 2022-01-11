@@ -2,7 +2,7 @@ import "./FilmsList.css";
 import DescriptionField from "./DescriptionField";
 import Image from "./Image";
 
-const FilmsLibrary = ({ dataSrc }) => {
+const FilmsList = ({ dataSrc }) => {
   return (
     <>
       {dataSrc.map((e) => (
@@ -20,4 +20,4 @@ const FilmsLibrary = ({ dataSrc }) => {
   );
 };
 
-export default FilmsLibrary;
+export default FilmsList;
