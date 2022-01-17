@@ -1,112 +1,112 @@
-body{
-    background-color: aliceblue;
+body {
+  background-color: aliceblue;
 }
-.form{
-    width: 500px;
-    height: 450px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px auto 80px auto;
-    padding: 10px;
-    padding-bottom: 0px;
-    background-color: white;
-    border: 0px solid black;
-    border-radius: 10px;
-    box-shadow: 0px 0px 7px 1px #2b1212;
-    font-weight: 600;
+.form {
+  width: 500px;
+  height: 450px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto 80px auto;
+  padding: 10px;
+  padding-bottom: 0px;
+  background-color: white;
+  border: 0px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 1px #2b1212;
+  font-weight: 600;
 }
 
-
-label{
+label {
   margin-bottom: 5px;
 }
 
-.booksContainer{
-    width: max-content;
-    height: min-content;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px auto 10px auto;
-    background-color: white;
-    border: 0px solid black;
-    border-radius: 10px;
-     box-shadow: 0px 0px 7px 1px #2b1212;
-     padding-bottom: 40px;
+.booksContainer {
+  width: max-content;
+  height: min-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto 10px auto;
+  background-color: white;
+  border: 0px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 1px #2b1212;
+  padding-bottom: 40px;
 }
 
-input, select{
-    background-color: aliceblue;
-    width: 300px;
-    height: 40px;
-    border: 0px solid rgb(221, 12, 12);
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 1px #2b1212;
-    text-align: center;
-    outline: none;
-    font-weight: 600;
+input,
+select {
+  background-color: aliceblue;
+  width: 300px;
+  height: 40px;
+  border: 0px solid rgb(221, 12, 12);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px #2b1212;
+  text-align: center;
+  outline: none;
+  font-weight: 600;
 }
 
-.book-title, .book-author, .priority, .category{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    margin: 5px;
-    width: 300px;
-    height: 80px;
-
+.book-title,
+.book-author,
+.priority,
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 5px;
+  width: 300px;
+  height: 80px;
 }
-.category1{
-    margin-top: initial;
+.category1 {
+  margin-top: initial;
 }
-button{
-    margin: 20px auto 0px auto;
-    width: 150px;
-    height: 50px;
-    background-color: rgb(61, 32, 32);
-    color: aliceblue;
-    font-size: large;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+button {
+  margin: 20px auto 0px auto;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(61, 32, 32);
+  color: aliceblue;
+  font-size: large;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 7px 1px #2b1212;
 }
-table{
-    color: #2b1212;
-    
-}
-
-table>thead{
-    width: fit-content;
-    border-bottom: 3px solid rgb(61, 32, 32);
-    display: block;
-    margin-bottom: 15px;
-    font-size: large;
+table {
+  color: #2b1212;
 }
 
-.headings, .about-book{
-width: 150px;
-height: 40px;
-/* margin: 5px;
+table > thead {
+  width: fit-content;
+  border-bottom: 3px solid rgb(61, 32, 32);
+  display: block;
+  margin-bottom: 15px;
+  font-size: large;
+}
+
+.headings,
+.about-book {
+  width: 150px;
+  height: 40px;
+  /* margin: 5px;
 padding: 5px; */
-text-align: center;
+  text-align: center;
 }
 
-tbody:nth-child(even){
-    background-color: rgb(235, 235, 235);
+tbody:nth-child(even) {
+  background-color: rgb(235, 235, 235);
 }
-tbody>tr{
-    width: fit-content;
-    border-bottom: 2px solid rgb(61, 32, 32);
-    display: block;
-    
+tbody > tr {
+  width: fit-content;
+  border-bottom: 2px solid rgb(61, 32, 32);
+  display: block;
 }
-
-
