@@ -3,6 +3,27 @@ import { createContext } from "react";
 
 export const ThemeContex = createContext();
 
+// export const ThemeProvider = ({ children }) => {
+//   const themes = {
+//     green: {
+//       foreground: "#000000",
+//       background: "#bfc68c",
+//     },
+//     red: {
+//       foreground: "#ffffff",
+//       background: "#f44336",
+//     },
+//   };
+
+//   return (
+//     <>
+//       <ThemeContex.Provider value={themes}>
+//         <div>{children}</div>
+//       </ThemeContex.Provider>
+//     </>
+//   );
+// };
+
 export const ThemeProvider = ({ children }) => {
   const themes = {
     green: {
@@ -17,9 +38,7 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <>
-      <ThemeContex.Provider value={themes}>
-        <div>{children}</div>
-      </ThemeContex.Provider>
+      <ThemeContex.Provider value={themes}>{children}</ThemeContex.Provider>
     </>
   );
 };

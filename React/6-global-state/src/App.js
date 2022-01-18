@@ -2,9 +2,7 @@ import "./App.css";
 import { Header } from "./Components/Header";
 import { ThemeProvider } from "./Components/Provider";
 
-//Rozpoczęcie otwierania portalu
-
-const App = () => {
+export const App = () => {
   return (
     <ThemeProvider>
       <div>
@@ -13,5 +11,3 @@ const App = () => {
     </ThemeProvider>
   );
 };
-
-export default App;
