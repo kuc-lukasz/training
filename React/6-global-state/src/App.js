@@ -1,20 +1,16 @@
 import "./App.css";
-import { createContext } from "react";
-import Header from "./Components/Header";
+import { Header } from "./Components/Header";
+import { ThemeProvider } from "./Components/Provider";
 
-export const ThemeContext = createContext();
+//Rozpoczęcie otwierania portalu
 
 const App = () => {
-  const name = "Łukasz";
-
   return (
-    <>
-      <ThemeContext.Provider value={name}>
-        <div>
-          <Header />
-        </div>
-      </ThemeContext.Provider>
-    </>
+    <ThemeProvider>
+      <div>
+        <Header />
+      </div>
+    </ThemeProvider>
   );
 };
 

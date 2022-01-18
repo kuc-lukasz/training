@@ -1,30 +1,69 @@
-import { ThemeContext } from "../App";
-import { useContext } from "react";
 import React from "react";
+import { useContext } from "react";
+//Odbieranie portalu
 
-// Dwie wersje!
+// Dwie wersje! Jedna z Consumerem, druga z Hookiem useContext
+import { ThemeContex } from "./Provider";
 
-const Button = () => {
+export const Button = () => {
+  // Implementacja portalu
+  const newTheme = useContext(ThemeContex);
+  console.log(newTheme);
   return (
     <>
-      <ThemeContext.Consumer>
-        {(name) => {
-          return <button>Kliknij: {name}</button>;
+      <button
+        style={{
+          backgroundColor: newTheme.green.background,
+          color: newTheme.green.foreground,
         }}
-      </ThemeContext.Consumer>
+      >
+        Zielony btn
+      </button>
+      <button
+        style={{
+          backgroundColor: newTheme.red.background,
+          color: newTheme.red.foreground,
+        }}
+      >
+        Czerwony button
+      </button>
     </>
   );
 };
 
-export default Button;
-
 // const Button = () => {
-//   const name = useContext(ThemeContext);
+//   const state = true;
 //   return (
 //     <>
-//       <button>{name}</button>
+//       <ThemeContext.Consumer>
+//         {(themes) => {
+//           return (
+//             <>
+//               <button
+//                 style={{
+//                   background: themes.light.background,
+//                   color: themes.light.foreground,
+//                 }}
+//               >
+//                 Zmień kolor
+//               </button>
+//               <button
+//                 style={{
+//                   background: themes.dark.background,
+//                   color: themes.dark.foreground,
+//                 }}
+//               >
+//                 Zmień kolor
+//               </button>
+//             </>
+//           );
+//         }}
+//       </ThemeContext.Consumer>
+//       <Name.Consumer>
+//         {(name) => {
+//           return <button>{name}</button>;
+//         }}
+//       </Name.Consumer>
 //     </>
 //   );
 // };
-
-// export default Button;
