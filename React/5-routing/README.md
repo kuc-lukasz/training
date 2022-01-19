@@ -112,11 +112,11 @@ Aktualna strona ma być wskazana pod adresem
 
 Można użyć np:
 
-- `<Route path="/movie"> content tylko na stronie movie</Route>`
-- `<Route path="/movie/:id"> content tylko na stronie movie details dla movie o konkretnym ID</Route>`
-- `useRouteMatch()`
-- `useHistory()`
-- `<Link to="/movies"/>`
+- `<Route path="/movie"> content tylko na stronie movie</Route>` <- komponent który wyrenderuje dziecko tylko wtedy kiedy ściezka sie zgadza >
+- `<Route path="/movie/:id"> content tylko na stronie movie details dla movie o konkretnym ID</Route>` <- wyrenderuje tylko wtedy kiedy w sciezce bedzie /movie/cos tam... >
+- `useRouteMatch()` <- narzedzie ktore pozwala pobrać ścieżkę aktualna ze wszystkimi segmentami  >
+- `useHistory()` -> daje nam dostep do API ktory mowi aktualizuje sciezke 
+- `<Link to="/movies"/>` 
 - `<Link to="/movies/some-movie-id"/>`
 
 Należy zwrócić uwagę, że odkąd informacje o aktualnej stronie zawarte są w pasku adresu, nie potrzebujemy

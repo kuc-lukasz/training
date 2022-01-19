@@ -1,1 +1,8 @@
-export const AboutContent = () => <>This is your about page...</>;
+import {}
+
+export const AboutContent = () => {
+const {pageName} = userRo
+
+
+
+} 

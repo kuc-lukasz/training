@@ -28,8 +28,6 @@ import { ThemeContex } from "./Provider";
 // };
 
 export const Button = () => {
-  // Implementacja portalu
-
   return (
     <>
       <ThemeContex.Consumer>
@@ -41,17 +39,15 @@ export const Button = () => {
                   backgroundColor: themes.green.background,
                   color: themes.green.foreground,
                 }}
-              >
-                Zielony btn
+              >Zielony btn
+                
               </button>
-
               <button
                 style={{
                   backgroundColor: themes.red.background,
                   color: themes.red.foreground,
                 }}
-              >
-                Czerwony button
+              >Czerwony button  
               </button>
             </>
           );
