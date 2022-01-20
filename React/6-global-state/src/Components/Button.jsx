@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { ThemeContex } from "./Provider";
 
@@ -6,7 +6,7 @@ export const Button = () => {
   // Implementacja portalu
   // const newTheme = useContext(ThemeContex);
 
-  const { theme, colors } = useContext(ThemeContex);
+  const { theme, colors, setColor } = useContext(ThemeContex);
 
   const buttonStyle = {
     background: colors ? theme.light.background : theme.dark.background,
@@ -15,7 +15,14 @@ export const Button = () => {
 
   return (
     <>
-      <button style={buttonStyle}>{colors ? "Jasny" : "Ciemny"}</button>
+      <button
+        onClick={() => {
+          setColor(!colors);
+        }}
+        style={buttonStyle}
+      >
+        {colors ? "Jasny" : "Ciemny"}
+      </button>
     </>
   );
 };

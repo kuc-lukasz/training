@@ -38,8 +38,6 @@ export const ThemeProvider = ({ children }) => {
     },
   };
 
-  console.log(theme.dark);
-
   return (
     <div>
       <button
@@ -49,7 +47,7 @@ export const ThemeProvider = ({ children }) => {
       >
         Color Changer
       </button>
-      <ThemeContex.Provider value={{ theme, colors }}>
+      <ThemeContex.Provider value={{ theme, colors, setColor }}>
         {children}
       </ThemeContex.Provider>
     </div>
