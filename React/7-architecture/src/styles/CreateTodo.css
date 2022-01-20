@@ -1,0 +1,15 @@
+.CreateTodo {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.CreateTodo input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 25px;
+  border-bottom: 2px solid gray;
+}

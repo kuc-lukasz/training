@@ -1,0 +1,53 @@
+.Todo {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  background-color: #fff;
+  border-bottom: 2px solid gray;
+}
+
+.Todo-title {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 25px;
+  color: black;
+}
+
+.Todo-title-check {
+  text-decoration: line-through;
+}
+
+.Todo-check {
+  margin-left: 10px;
+}
+
+.Todo-check:checked + input:not(:focus) {
+  text-decoration: line-through;
+}
+
+.Todo-delete-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  border: none;
+  font-size: 30px;
+  color: #cc9a9a;
+  background-color: transparent;
+  transition: color 0.2s ease-out;
+  cursor: pointer;
+}
+
+.Todo-delete-btn::after {
+  content: '×';
+}
+
+.Todo:hover .Todo-delete-btn {
+  display: block;
+}
+
+.Counter {
+  padding-left: 10px;
+}

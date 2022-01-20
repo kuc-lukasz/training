@@ -1,5 +1,5 @@
 // Tworzenie teleportu
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const ThemeContex = createContext();
 
@@ -25,20 +25,33 @@ export const ThemeContex = createContext();
 // };
 
 export const ThemeProvider = ({ children }) => {
-  const themes = {
-    green: {
+  const [colors, setColor] = useState(true);
+
+  const theme = {
+    light: {
       foreground: "#000000",
-      background: "#bfc68c",
+      background: "#eeeeee",
     },
-    red: {
+    dark: {
       foreground: "#ffffff",
-      background: "#f44336",
+      background: "#222222",
     },
   };
 
+  console.log(theme.dark);
+
   return (
-    <>
-      <ThemeContex.Provider value={themes}>{children}</ThemeContex.Provider>
-    </>
+    <div>
+      <button
+        onClick={() => {
+          setColor(!colors);
+        }}
+      >
+        Color Changer
+      </button>
+      <ThemeContex.Provider value={{ theme, colors }}>
+        {children}
+      </ThemeContex.Provider>
+    </div>
   );
 };
