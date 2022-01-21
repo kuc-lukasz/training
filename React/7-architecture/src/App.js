@@ -1,7 +1,7 @@
 import { useEffect, useState, forwardRef } from "react";
 import { CreateTodo } from "./components/CreateTodo";
 import { TodoList } from "./components/TodoList";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 
 import "./styles/App.css";
 import { updateTodoInDb } from "./components/Todo";

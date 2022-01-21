@@ -2,7 +2,7 @@ import '../styles/CreateTodo.css';
 
 export const CreateTodo = ({ setTodo }) => {
   const addTodoToDb = todo => {
-    return fetch('http://localhost:3001/todos', {
+    return fetch('http://localhost:3005/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(todo),
