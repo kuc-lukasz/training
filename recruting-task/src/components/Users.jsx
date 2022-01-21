@@ -9,34 +9,27 @@ export const Users = () => {
         return response.json();
       })
       .then((data) => {
-        console.log();
         setUsers(data.data);
       });
   }, []);
 
   return (
     <div>
-      {/* {users.map((user) => {
-        console.log(user.data);
-        return (
-          <>
-            <ul>
-              <li>{user.data.name}</li>
-            </ul>
-          </>
-        );
-      })} */}
       <h2>Users</h2>
       {users.map((user) => {
         return (
           <>
             <ul>
-              <li>{user.name}</li>
+              <li key={user.id}>
+                <span>Id: {user.id}, </span>
+                <span>Name: {user.name}</span>
+                <span>Name: {user.email}</span>
+                <span>Name: {user.gender}</span>
+                <span>Name: {user.status}</span>
+              </li>
             </ul>
           </>
         );
-
-        console.log(user);
       })}
     </div>
   );
