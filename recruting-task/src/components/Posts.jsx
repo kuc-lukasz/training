@@ -23,19 +23,38 @@ export const Posts = () => {
       });
   }, []);
 
+  //   const displayData = (posts, coments) => {
+  //     console.log(posts);
+  //     console.log(coments);
+  //     return <></>;
+  //   };
+
   return (
     <>
       <div>
         <h2>Posts and coments</h2>
+
         {posts.map((post) => {
+          let postId = post.id;
+          console.log(postId);
           return (
             <>
               <ul>
-                <li key={post.id}>
-                  <span>Id: {post.id}, </span>
-                  <span>User id: {post.user_id}</span>
-                  <span>Title: {post.title}</span>
-                  {/* <span>Name: {post.body}</span> */}
+                <li>
+                  <span>Post ID: {post.id}</span> <p>Title: {post.title}</p>
+                  <p>{post.body}</p>
+                  <p>
+                    Comments:
+                    {coments
+                      .filter((coment) => {
+                        console.log(coment.post_id);
+                        console.log(post.id);
+                        return post.id === coment.post_id;
+                      })
+                      .map((coment) => {
+                        return <span>{coment.body}</span>;
+                      })}
+                  </p>
                 </li>
               </ul>
             </>
