@@ -8,7 +8,7 @@
 
 • The Todos subpage presents a list of to-do tasks retrieved from the URL: https://gorest.co.in/public/v1/todos.
 
-<img src="./screenFromApp/ReactAppWithExternalServer.png">
+<img src="./screenFromApp/ReactAppWithExternalServer.png" style="width: 1024px, height: 720px">
 <img src="./screenFromApp/postsPAge.png">
 <img src="./screenFromApp/todoListPage.png">
 <img src="./screenFromApp/userPage.png">
