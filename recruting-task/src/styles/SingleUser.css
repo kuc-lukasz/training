@@ -11,6 +11,7 @@
   padding: 15px 0 5px 0;
   border-radius: 5px;
   box-shadow: 0 0 10px 2px black;
+  text-align: center;
 }
 .single-user-window > * {
   margin: 0;

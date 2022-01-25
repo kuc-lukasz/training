@@ -2,8 +2,8 @@ import "../styles/App.css";
 import { Posts } from "./Posts";
 import { Users } from "./Users";
 import { ToDos } from "./Todos";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import { PluralPhoto, PostPhoto, ToDoPhoto } from "./UserPhotos";
+import { Route, Link, Routes } from "react-router-dom";
+import { PluralPhoto, PostPhoto, ToDoPhoto, HomPhoto } from "./UserPhotos";
 
 function App() {
   const HomePage = () => {
@@ -18,7 +18,10 @@ function App() {
     <div className="first-page">
       <ul className="nav-list">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            Home
+            <HomPhoto />
+          </Link>
         </li>
         <li>
           <Link to="/users">
@@ -39,8 +42,6 @@ function App() {
           </Link>
         </li>
       </ul>
-      <Link to="/"></Link>
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/users" element={<Users />} />

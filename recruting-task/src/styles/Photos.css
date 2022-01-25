@@ -11,3 +11,11 @@
 div > img {
   margin: 0 auto;
 }
+
+@media screen and (max-width: 850px) {
+  .plural-photo {
+    width: 40px;
+    height: 30px;
+    display: block;
+  }
+}
