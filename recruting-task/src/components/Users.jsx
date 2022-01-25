@@ -5,6 +5,10 @@ import { PluralPhoto } from "./UserPhotos";
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
 
   useEffect(() => {
     fetch("https://gorest.co.in/public/v1/users")
@@ -16,30 +20,79 @@ export const Users = () => {
       });
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setName(e.target.name.value);
+    // setId(e.target.id.value);
+    // setEmail(e.target.email.value);
+    // setGender(e.target.gender.value);
+
+    console.log(name, id, email, gender);
+
+    return fetch("https://gorest.co.in/public/v1/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: {
+        name: { name },
+        gender: { gender },
+        email: { email },
+        id: { id },
+      },
+    });
+  };
+
   return (
     <>
       <PluralPhoto />
       <div className="users-window">
         <div>
-          <form className="add-user-form">
+          <form onSubmit={handleSubmit} className="add-user-form">
             Add user
             <label>
               Name
-              <input name="name" type="text"></input>
+              <input
+                name="name"
+                type="text"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              ></input>
             </label>
             <label>
               ID
-              <input name="name" type="text"></input>
+              <input
+                name="id"
+                type="text"
+                value={id}
+                onChange={(e) => {
+                  setId(e.target.value);
+                }}
+              ></input>
             </label>
             <label>
               E-mail
-              <input name="name" type="email"></input>
+              <input
+                name="email"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              ></input>
             </label>
             <label>
               Gender
-              <input name="name" type="text"></input>
+              <input
+                name="gender"
+                type="text"
+                value={gender}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                }}
+              ></input>
             </label>
-            <button>Add user</button>
+            <button type="submit">Add user</button>
           </form>
         </div>
         <div className="users-window">
