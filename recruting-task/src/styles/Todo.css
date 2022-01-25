@@ -1,0 +1,25 @@
+.todo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.todo-tasks {
+  margin: 30px;
+  background-color: rgb(226, 226, 226);
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px #464646;
+  padding: 30px 0px 30px 0px;
+}
+
+.todo-tasks > li {
+  padding: 10px;
+  margin: 0;
+  font-weight: 500;
+  text-align: end;
+}
+
+.todo-tasks > li:nth-child(odd) {
+  background-color: #c5c5c5;
+}

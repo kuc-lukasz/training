@@ -1,29 +1,29 @@
-import '../styles/CreateTodo.css';
+import "../styles/CreateTodo.css";
 
 export const CreateTodo = ({ setTodo }) => {
-  const addTodoToDb = todo => {
-    return fetch('http://localhost:3005/todos', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  const addTodoToDb = (todo) => {
+    return fetch("http://localhost:3001/todos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(todo),
     });
   };
 
-  const addTodoHandler = e => {
-    if (e.key === 'Enter' && e.target.value.trim()) {
+  const addTodoHandler = (e) => {
+    if (e.key === "Enter" && e.target.value.trim()) {
       const todo = {
         content: e.target.value,
         isCompleted: false,
       };
       addTodoToDb(todo)
-        .then(res => {
+        .then((res) => {
           if (res.ok) {
             setTodo(todo);
-            e.target.value = '';
+            e.target.value = "";
           }
         })
-        .catch(err => {
-          console.log('Could not add todo', err);
+        .catch((err) => {
+          console.log("Could not add todo", err);
         });
     }
   };

@@ -2,8 +2,33 @@
   "todos": [
     {
       "content": "siema",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 2
+    },
+    {
+      "content": "gotowanie",
+      "isCompleted": false,
+      "id": 3
+    },
+    {
+      "content": "ggaga",
+      "isCompleted": false,
+      "id": 4
+    },
+    {
+      "content": "dda",
+      "isCompleted": false,
+      "id": 5
+    },
+    {
+      "content": "fs",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "content": "fs",
+      "isCompleted": false,
+      "id": 7
     }
   ]
 }

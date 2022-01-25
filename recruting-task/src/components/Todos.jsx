@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToDoPhoto } from "./UserPhotos";
+import "../styles/Todo.css";
 
 export const ToDos = () => {
   const [toDo, setToDO] = useState([]);
@@ -16,17 +18,13 @@ export const ToDos = () => {
 
   return (
     <>
-      <div>
-        <h2>ToDO</h2>
-        {toDo.map((task) => {
-          return (
-            <>
-              <ul>
-                <li>{task.title}</li>
-              </ul>
-            </>
-          );
-        })}
+      <div className="todo">
+        <ToDoPhoto />
+        <ul className="todo-tasks">
+          {toDo.map((task) => {
+            return <li>{task.title}</li>;
+          })}
+        </ul>
       </div>
     </>
   );

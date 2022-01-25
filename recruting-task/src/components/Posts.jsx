@@ -1,4 +1,9 @@
+import "../styles/Posts.css";
 import { useEffect, useState } from "react";
+import { SingleComments } from "./SingleComment";
+import { SinglePost } from "./SinglePost";
+import { PostPhoto } from "./UserPhotos";
+
 export const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [coments, setComents] = useState([]);
@@ -23,43 +28,48 @@ export const Posts = () => {
       });
   }, []);
 
-  //   const displayData = (posts, coments) => {
-  //     console.log(posts);
-  //     console.log(coments);
-  //     return <></>;
-  //   };
-
   return (
     <>
-      <div>
-        <h2>Posts and coments</h2>
-
-        {posts.map((post) => {
-          let postId = post.id;
-          console.log(postId);
-          return (
-            <>
-              <ul>
-                <li>
-                  <span>Post ID: {post.id}</span> <p>Title: {post.title}</p>
-                  <p>{post.body}</p>
-                  <p>
-                    Comments:
-                    {coments
-                      .filter((coment) => {
-                        console.log(coment.post_id);
-                        console.log(post.id);
-                        return post.id === coment.post_id;
-                      })
-                      .map((coment) => {
-                        return <span>{coment.body}</span>;
-                      })}
-                  </p>
-                </li>
-              </ul>
-            </>
-          );
-        })}
+      <div className="post-and-comments">
+        <PostPhoto />
+        <div>
+          {posts.map((post) => {
+            let postId = post.id;
+            console.log(postId);
+            return (
+              <>
+                <SinglePost
+                  userID={post.user_id}
+                  Title={post.title}
+                  Content={post.body}
+                />
+                <h4
+                  style={{
+                    margin: "0px 10px 10px 10px",
+                    color: "black",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  Comments:
+                </h4>
+                {coments
+                  .filter((coment) => {
+                    return post.id === coment.post_id;
+                  })
+                  .map((coment) => {
+                    return (
+                      <SingleComments
+                        Name={coment.name}
+                        Email={coment.email}
+                        Content={coment.body}
+                      />
+                    );
+                  })}
+              </>
+            );
+          })}
+        </div>
       </div>
     </>
   );

@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.navigation {
+  width: 100vw;
+  margin-bottom: 20px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+.nav-list > li {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0 15px 10px 15px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+.nav-list > li > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}

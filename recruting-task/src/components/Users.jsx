@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import "../styles/users.css";
+import { SingleUser } from "./singleUser";
+import { PluralPhoto } from "./UserPhotos";
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -14,23 +17,46 @@ export const Users = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Users</h2>
-      {users.map((user) => {
-        return (
-          <>
-            <ul>
-              <li key={user.id}>
-                <span>Id: {user.id}, </span>
-                <span>Name: {user.name}</span>
-                <span>Name: {user.email}</span>
-                <span>Name: {user.gender}</span>
-                <span>Name: {user.status}</span>
-              </li>
-            </ul>
-          </>
-        );
-      })}
-    </div>
+    <>
+      <PluralPhoto />
+      <div className="users-window">
+        <div>
+          <form className="add-user-form">
+            Add user
+            <label>
+              Name
+              <input name="name" type="text"></input>
+            </label>
+            <label>
+              ID
+              <input name="name" type="text"></input>
+            </label>
+            <label>
+              E-mail
+              <input name="name" type="email"></input>
+            </label>
+            <label>
+              Gender
+              <input name="name" type="text"></input>
+            </label>
+            <button>Add user</button>
+          </form>
+        </div>
+        <div className="users-window">
+          {users.map((user) => {
+            return (
+              <>
+                <SingleUser
+                  name={user.name}
+                  id={user.id}
+                  email={user.email}
+                  gender={user.gender}
+                />
+              </>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
