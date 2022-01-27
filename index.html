@@ -6,102 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <style>main {
-    margin: 30px;
-    padding: 30px;
-  }
-  
+  <style>
+    form {
+      width: 500px;
+      height: 500px;
+      border: 2px solid rgb(247, 140, 140);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div {
+      width: 300px;
+      height: 300px;
+      border: 2px solid gray;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(231, 250, 215);
+    }
+    p {
+      width: 150px;
+      height: 150px;
+      background-color: bisque;
+    }
   </style>
   <body>
-    <header>
-      <a href="">
-        <img src="" alt="" />
-      </a>
-      <nav>
-        <ul>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-        </ul>
-      </nav>
-      <a href="">
-        <img src="" />
-      </a>
-      <a href="">
-        <img src="" />
-      </a>
-      <a href="">
-        <img src="" />
-      </a>
-    </header>
-    <main>
-      <h1>Strona główna</h1>
-      <article>
-        <h2></h2>
-        <h3>Temat</h3>
-        <form>
-          <div>
-            <label for="input">Email </label>
-            <input type="email" id="input" value="xyz" />
-          </div>
-          <div>
-            <label type="number">Wpisz liczbę posiłków</label>
-            <input
-              type="number"
-              id="numer"
-              value=""
-              min="2"
-              max="10"
-              step="2"
-            />
-            
-            <fieldset>
-              <legend>Metoda dostawy</legend>
-                <label>Rodzaj płatności</label>
-                <label for="gotowka"></label>
-                <input type="radio" id="gotowka">Gotowka</input>
-                <label for="karta"></label>
-                <input type="radio" id="karta">Karta</input>
-                <label for="przelew"></label>
-                <input type="radio" id="przelew">Przelew</input>
-            </fieldset>
-            
-            <label for="">Wybierz sos</label>
-            <select required>           
-                <option value="">Wybierz gratisowy sos</option>
-                <option value="cash">Czosnkowy</option>
-                <option value="card">Ketchup</option>
-                <option value="transfer">Musztardowy</option>
-            </select>
-          </div>
-          <div>
-            <h3>Regulamin</h3>
-           <textarea>Dodatkowe informacje do zamówienia...
-              
-           </textarea>
-           <div>
-
-             <label for="checkbox">Akceptuj regulamin</label>
-             <input type="checkbox" required name="checkbox" id="checkbox" />
-            </div>
-            </div>
-          <div>
-            <button type="reset">Reset</button>
-            <button type="submit">Wyślij</button>
-          </div>
-        </form>
-        <form action="miejsce wysyłki, najczęściej backend" method="GET/POST"> 
-
-        </form>
-      </article>
-    </main>
-
-    <footer>
-      <p>Regulamin</p>
-      <p>Autor</p>
-    </footer>
+    <form>
+      FORM
+      <div>
+        DIV
+        <p>p element</p>
+      </div>
+    </form>
   </body>
+  <script defer>
+    const form = document.querySelector("form");
+    const div = document.querySelector("div");
+    const p = document.querySelector("p");
+
+    // form.addEventListener("click", (e) => {
+    //   if (e.target.tagName === "P") {
+    //     console.log("dziala P motherfucker!");
+    //   } else if (e.target.tagName === "DIV") {
+    //     console.log("dziala DIV motherfucker!");
+    //   }
+    // });
+
+    form.addEventListener("click", (e) => {
+      console.log("kliknales w form ");
+    });
+    div.addEventListener("click", (e) => {
+      e.stopPropagation();
+      console.log("kliknales w div ");
+    });
+    p.addEventListener("click", (e) => {
+      e.stopPropagation();
+      console.log("kliknales w p ");
+    });
+  </script>
 </html>
