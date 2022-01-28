@@ -1,0 +1,40 @@
+.single-article {
+  padding: 30px;
+  max-width: 960px;
+  height: max-content;
+  background-color: white;
+  box-shadow: 0 0 10px 1px black;
+  border-radius: 5px;
+  position: relative;
+}
+.date {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+}
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.author {
+  margin-top: 1px;
+}
+.body-title {
+  text-align: center;
+}
+.body-content {
+  width: 400px;
+  text-align: justify;
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+
+  border-radius: 5px;
+}
