@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BlogList } from "./BlogList";
 
 export const Home = () => {
+  const [name, setName] = useState(true);
   const [blogs, setBlogs] = useState([
     {
       title: "My new website",
@@ -22,6 +23,9 @@ export const Home = () => {
       id: 3,
     },
   ]);
+  useEffect(() => {
+    console.log("use effect ! ");
+  }, [name]);
 
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
@@ -36,6 +40,16 @@ export const Home = () => {
         blogs={blogs.filter((blog) => blog.author === "mario")}
         title="Mario's Blogs "
       />
+      <div>
+        <button
+          onClick={() => {
+            setName(!name);
+          }}
+        >
+          Zmiana imienia i render useEffect
+        </button>
+        <p>{name ? "Łukasz" : "Dominika"}</p>
+      </div>
     </div>
   );
 };
