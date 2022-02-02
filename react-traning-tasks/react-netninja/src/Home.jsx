@@ -5,7 +5,11 @@ import { useFetch } from "./useFetch";
 export const Home = () => {
   const [name, setName] = useState(true);
 
-  const { data, isPending, error } = useFetch("http://localhost:8000/blogs");
+  const {
+    data: blogs,
+    isPending,
+    error,
+  } = useFetch("http://localhost:8000/blogs");
 
   const handleDelete = (id) => {
     // const newBlogsArray = blogs.filter((blog) => blog.id !== id);
@@ -16,8 +20,8 @@ export const Home = () => {
       <h2>Home page</h2>
       {error && <div>Nie możemy pobrać danych</div>}
       {isPending && <div>Loading ... </div>}
-      {data && (
-        <BlogList blogs={data} title="All Blogs" handleDelete={handleDelete} />
+      {blogs && (
+        <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
       )}
 
       <div>

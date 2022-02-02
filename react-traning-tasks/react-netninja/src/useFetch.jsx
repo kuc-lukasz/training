@@ -6,7 +6,9 @@ export const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
+    const abortCont = new AbortController();
+
+    fetch(url, { signal: abortCont.signal })
       .then((res) => {
         if (!res.ok) {
           //errors comingback from the server
@@ -20,10 +22,16 @@ export const useFetch = (url) => {
         setError(null);
       })
       .catch((err) => {
+        if (err.name === "AbortError") {
+          console.log("fetch aborted");
+        }
         // auto catches network / connection error
-        setIsPending(false);
-        setError(err);
+        else {
+          setIsPending(false);
+          setError(err);
+        }
       });
+    return () => abortCont.abort();
   }, [url]);
 
   return { data, isPending, error };
