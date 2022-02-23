@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 export const SingleCard = styled.div`
     width: 150px;
     height: 150px;
-    border: 1px solid black;
+
     margin: 5px;
     position: relative;
 `;

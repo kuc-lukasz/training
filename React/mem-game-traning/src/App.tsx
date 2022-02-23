@@ -63,7 +63,7 @@ function App() {
         <MainContainer>
             {won ? (
                 <h1 style={{ position: "absolute", top: 0, left: "40%" }}>
-                    {window.alert("win")}: void
+                    Wygrałeś
                 </h1>
             ) : (
                 ""
