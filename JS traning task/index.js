@@ -1,5 +1,5 @@
 const button = document.querySelector("button");
-
+const profileImage = document.querySelector("img");
 const url = "https://randomuser.me/api/";
 
 const userArr = [];
@@ -22,7 +22,7 @@ button.addEventListener("click", () => {
             dataFromServer.map((user) => {
                 console.log(user);
                 let userName = `${user.name.first} ${user.name.last} `;
-                let pictureUrl = `${user.picture.thumbnail}`;
+                let pictureUrl = `${user.picture.large}`;
                 let registerData = `${user.registered.date}`;
                 let nationality = `${user.nat}`;
                 let locationAddress = `${user.location.street.name} ${user.location.street.number}
@@ -34,6 +34,8 @@ button.addEventListener("click", () => {
                 console.log(registerData);
                 console.log(nationality);
                 console.log(locationAddress);
+
+                profileImage.src = pictureUrl;
 
                 arrTenUsers(userName, nationality, registerData);
             });
