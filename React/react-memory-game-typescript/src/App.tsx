@@ -10,7 +10,7 @@ import { CardType } from "./setup";
 import { Grid } from "./App.styles";
 
 const App = () => {
-    // stan jest tablicą z 16 cartami które są w funkcji shuffleArray która z kolei będzie je mapowała, sortowała i jeszcze raz mapowała
+    // stan jest tablicą z 16 cartami które są w funkcji shuffleArray która z kolei będzie je mapowała, sortowała i jeszcze raz mapowała aby prawidłowo je wymieszać 
     const [cards, setCards] = useState<CardType[]>(shuffleArray(createBoard()));
 
     //określi czy wygraliśmy grę
