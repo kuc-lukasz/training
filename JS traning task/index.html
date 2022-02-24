@@ -13,23 +13,52 @@
 
 <body>
     <nav>
-        <ul>
-            <li>Home</li>
-            <li>Last 10 users</li>
-        </ul>
+        <button>Home</button><button>User List</button>
     </nav>
-    <button>Generete new user</button>
-    <main>
+    <button id="generateBtn">Generete new user</button>
+    <p id="error" class="hideData">Nie można załadować danych</p>
+    <p id="loader" class="hideData">Ładuje ....</p>
+    <main id="mainContainerUser" class="hideData">
+
         <img src="" alt="profile images">
         <section>
-            <h1>Imie nazwisko</h1>
-            <h4>Poland</h4>
-            <h5>data rejestracji </h5>
+            <h1>
+                <span id="userFirstName"></span>
+                <span id="userLastName"></span>
+                (
+                <span id="nationalityInfo"></span>)
+            </h1>
+
+            <h5>Registered: <span id="regDateInfo"></span>
+            </h5>
         </section>
         <section>
-            <p>Adres Zamieszkania</p>
+            <input type="checkbox" id="trigger" name="unchecked">Hide Address </input>
+            <div id="addrresInfo">
+                <p>Address
+                <p id="locationInfo"></p>
+                </p>
+            </div>
+
         </section>
     </main>
+    <table id="table">
+        <thead id="tableUsersData">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Country</th>
+                <th>Registration</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyUsersTag">
+            <tr>
+                <td>adad</td>
+            </tr>
+        </tbody>
+
+
+    </table>
 </body>
 
 </html>
