@@ -1,4 +1,4 @@
-const button = document.querySelector("#generateBtn");
+const btnAddNewUser = document.querySelector("#generateBtn");
 const mainContainerUser = document.querySelector("#mainContainerUser");
 const profileImage = document.querySelector("img");
 const userFirstNameInfo = document.querySelector("#userFirstName");
@@ -10,10 +10,6 @@ const checkboxInput = document.querySelector("input");
 const addrressContainer = document.querySelector("#addrresInfo");
 
 const tableUserTag = document.querySelector("#table");
-
-// let tableUserName = document.querySelector("#tableUserName");
-// let tableNation = document.querySelector("#tableNation");
-// let tableRegistration = document.querySelector("#tableRegistration");
 
 const url = "https://randomuser.me/api/";
 
@@ -32,14 +28,14 @@ checkboxInput.addEventListener("click", () => {
     }
 });
 
-const addUserToTable = () => {
-    console.log(userArr);
+const displayUsersCreateTable = (array) => {
+    console.log(array);
 
     const tbodyUsersTag = document.createElement("tbody");
     tbodyUsersTag.setAttribute("id", "tbodyUsersTag");
     tableUserTag.appendChild(tbodyUsersTag);
 
-    userArr.forEach((user) => {
+    array.forEach((user) => {
         //tworze
         const trTagUsers = document.createElement("tr");
         let tableFirstName = document.createElement("td");
@@ -63,7 +59,7 @@ const addUserToTable = () => {
     });
 };
 
-button.addEventListener("click", (e) => {
+btnAddNewUser.addEventListener("click", (e) => {
     e.preventDefault();
     const tbodyUsersTag = document.querySelector("#tbodyUsersTag");
     tbodyUsersTag.remove();
@@ -100,8 +96,8 @@ button.addEventListener("click", (e) => {
 
                 loader.classList.add("hideData");
                 mainContainerUser.classList.remove("hideData");
-                console.log(firstName, lastName);
-                addUserToTable();
+
+                displayUsersCreateTable(userArr);
             });
         })
         .catch((data) => {
@@ -109,4 +105,51 @@ button.addEventListener("click", (e) => {
             loader.classList.add("hideData");
             errorMsg.classList.remove("hideData");
         });
+});
+
+const btnSortByLastName = document.querySelector("#btnSortByLastName");
+const btnSortByRegDate = document.querySelector("#btnSortByRegDate");
+let sortTrigger = true;
+const sortTriggerFunction = () => {
+    if (sortTrigger) {
+        sortTrigger = false;
+    } else {
+        sortTrigger = true;
+    }
+};
+
+const sortByLastName = () => {
+    tbodyUsersTag.remove();
+    sortTriggerFunction();
+    let sortArrayByLastName = [];
+
+    sortArrayByLastName = [...userArr].sort((a, b) =>
+        sortTrigger
+            ? b.last.localeCompare(a.last)
+            : a.last.localeCompare(b.last)
+    );
+    displayUsersCreateTable(sortArrayByLastName);
+    console.log(sortArrayByLastName);
+};
+
+const sortByRegistered = () => {
+    tbodyUsersTag.remove();
+    sortTriggerFunction();
+    let sortArrayByReg = [];
+
+    sortArrayByReg = [...userArr].sort((a, b) =>
+        sortTrigger
+            ? a.registered.localeCompare(b.registered)
+            : b.registered.localeCompare(a.registered)
+    );
+    console.log(sortArrayByReg);
+    displayUsersCreateTable(sortArrayByReg);
+};
+
+btnSortByLastName.addEventListener("click", () => {
+    sortByLastName();
+});
+
+btnSortByRegDate.addEventListener("click", () => {
+    sortByRegistered();
 });
