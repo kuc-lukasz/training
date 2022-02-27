@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
+    <script src="main.js" defer></script>
 
 </head>
 
 <body>
     <nav>
-        <button>Home</button><button>User List</button>
+        <ul>
+
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/UsersPage.html">Last 10 Users</a></li>
+            <li></li>
+        </ul>
     </nav>
     <button id="generateBtn">Generete new user</button>
     <p id="error" class="hideData">Nie można załadować danych</p>
@@ -42,7 +47,7 @@
 
         </section>
     </main>
-    <button id="btnSortByLastName">Sort by last name</button>
+    <!-- <button id="btnSortByLastName">Sort by last name</button>
     <button id="btnSortByRegDate">Sort by registered</button>
     <table id="table">
         <thead id="tableUsersData">
@@ -52,27 +57,8 @@
                 <th>Country</th>
                 <th>Registration</th>
             </tr>
-        </thead>
-        <tbody id="tbodyUsersTag">
-            <!-- <tr>
-                <td>adad</td>
-            </tr> -->
-        </tbody>
-    </table>
-    <table>
-        <thead id="tableUsersData">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Country</th>
-                <th>Registration</th>
-            </tr>
-        </thead>
-        <tbody id="tableUsersLocalStorage">
+        </thead> -->
 
-        </tbody>
-
-    </table>
 </body>
 
 </html>

@@ -9,10 +9,6 @@ const locationInfo = document.querySelector("#locationInfo");
 const checkboxInput = document.querySelector("input");
 const addrressContainer = document.querySelector("#addrresInfo");
 
-const tableUserTag = document.querySelector("#table");
-
-const userTableLocalStorage = document.querySelector("#tableUsersLocalStorage");
-
 const url = "https://randomuser.me/api/";
 
 let userArr = [];
@@ -64,14 +60,14 @@ const displayUsersCreateTable = (array) => {
 
 btnAddNewUser.addEventListener("click", (e) => {
     e.preventDefault();
-    // const tbodyUsersTag = document.querySelector("#tbodyUsersTag");
-    tbodyUsersTag.remove();
+
+    // tbodyUsersTag.remove();
 
     const errorMsg = document.querySelector("#error");
     const loader = document.querySelector("#loader");
     loader.classList.remove("hideData");
     errorMsg.classList.add("hideData");
-    localStorage.clear();
+    // localStorage.clear();
 
     fetch(url, {})
         .then((response) => {
@@ -116,54 +112,6 @@ btnAddNewUser.addEventListener("click", (e) => {
             errorMsg.classList.remove("hideData");
         });
 });
-
-const btnSortByLastName = document.querySelector("#btnSortByLastName");
-const btnSortByRegDate = document.querySelector("#btnSortByRegDate");
-let sortTrigger = true;
-const sortTriggerFunction = () => {
-    if (sortTrigger) {
-        sortTrigger = false;
-    } else {
-        sortTrigger = true;
-    }
-};
-
-const sortByLastName = () => {
-    tbodyUsersTag.remove();
-    sortTriggerFunction();
-    let sortArrayByLastName = [];
-
-    sortArrayByLastName = [...userArr].sort((a, b) =>
-        sortTrigger
-            ? b.last.localeCompare(a.last)
-            : a.last.localeCompare(b.last)
-    );
-    displayUsersCreateTable(sortArrayByLastName);
-    console.log(sortArrayByLastName);
-};
-
-const sortByRegistered = () => {
-    tbodyUsersTag.remove();
-    sortTriggerFunction();
-    let sortArrayByReg = [];
-
-    sortArrayByReg = [...userArr].sort((a, b) =>
-        sortTrigger
-            ? a.registered.localeCompare(b.registered)
-            : b.registered.localeCompare(a.registered)
-    );
-    console.log(sortArrayByReg);
-    displayUsersCreateTable(sortArrayByReg);
-};
-
-btnSortByLastName.addEventListener("click", () => {
-    sortByLastName();
-});
-
-btnSortByRegDate.addEventListener("click", () => {
-    sortByRegistered();
-});
-
 const setDatatoLocalStorage = () => {
     const lsArray = [...userArr];
     window.localStorage.setItem("users", JSON.stringify(lsArray));
@@ -192,5 +140,3 @@ const getDataFromLocalStorage = () => {
 };
 
 getDataFromLocalStorage();
-
-displayUsersCreateTable(userArr);
