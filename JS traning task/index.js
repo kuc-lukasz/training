@@ -11,6 +11,8 @@ const addrressContainer = document.querySelector("#addrresInfo");
 
 const tableUserTag = document.querySelector("#table");
 
+const userTableLocalStorage = document.querySelector("#tableUsersLocalStorage");
+
 const url = "https://randomuser.me/api/";
 
 const userArr = [];
@@ -63,10 +65,12 @@ btnAddNewUser.addEventListener("click", (e) => {
     e.preventDefault();
     const tbodyUsersTag = document.querySelector("#tbodyUsersTag");
     tbodyUsersTag.remove();
+    // userTableLocalStorage.innerHTML = "";
     const errorMsg = document.querySelector("#error");
     const loader = document.querySelector("#loader");
     loader.classList.remove("hideData");
     errorMsg.classList.add("hideData");
+    localStorage.clear();
 
     fetch(url, {})
         .then((response) => {
@@ -74,6 +78,7 @@ btnAddNewUser.addEventListener("click", (e) => {
         })
         .then((data) => {
             const dataFromServer = data.results;
+
             dataFromServer.forEach((user) => {
                 console.log(user);
                 let firstName = `${user.name.first}`;
@@ -92,12 +97,13 @@ btnAddNewUser.addEventListener("click", (e) => {
                 registerDateInfo.innerText = registerData;
                 locationInfo.innerText = locationAddress;
 
-                arrTenUsers(firstName, lastName, nationality, registerData);
-
                 loader.classList.add("hideData");
                 mainContainerUser.classList.remove("hideData");
 
+                arrTenUsers(firstName, lastName, nationality, registerData);
+                setDatatoLocalStorage();
                 displayUsersCreateTable(userArr);
+                getDataFromLocalStorage();
             });
         })
         .catch((data) => {
@@ -153,3 +159,37 @@ btnSortByLastName.addEventListener("click", () => {
 btnSortByRegDate.addEventListener("click", () => {
     sortByRegistered();
 });
+
+const setDatatoLocalStorage = () => {
+    const lsArray = [...userArr];
+    window.localStorage.setItem("users", JSON.stringify(lsArray));
+};
+
+const getDataFromLocalStorage = () => {
+    userTableLocalStorage.innerHTML = "";
+    Object.keys(localStorage)
+        .sort()
+        .forEach((key) => {
+            usersFromLS = JSON.parse(localStorage.getItem(key)).map((user) => {
+                const trLocalStorage = document.createElement("tr");
+                let LSFirstName = document.createElement("td");
+                let LSLastName = document.createElement("td");
+                let LSNation = document.createElement("td");
+                let LSRegistration = document.createElement("td");
+
+                trLocalStorage.setAttribute("id", "trLocalStorage");
+                //wrzucam
+                LSFirstName.innerText = user.first;
+                LSLastName.innerText = user.last;
+                LSNation.innerText = user.nationality;
+                LSRegistration.innerText = user.registered;
+                //dodaje do DOM
+
+                trLocalStorage.appendChild(LSFirstName);
+                trLocalStorage.appendChild(LSLastName);
+                trLocalStorage.appendChild(LSNation);
+                trLocalStorage.appendChild(LSRegistration);
+                userTableLocalStorage.appendChild(trLocalStorage);
+            });
+        });
+};
