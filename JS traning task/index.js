@@ -1,29 +1,20 @@
+// catch buttons
 const btnAddNewUser = document.querySelector("#generateBtn");
+const homeBtn = document.querySelector("#homeBtn");
+const listBtn = document.querySelector("#listBtn");
+
+const allProfileContainer = document.querySelector("#allProfileContainer");
 const mainContainerUser = document.querySelector("#mainContainerUser");
-const profileImage = document.querySelector("img");
-const userFirstNameInfo = document.querySelector("#userFirstName");
-const userLastNameInfo = document.querySelector("#userLastName");
-const nationalityInfo = document.querySelector("#nationalityInfo");
-const registerDateInfo = document.querySelector("#regDateInfo");
-const locationInfo = document.querySelector("#locationInfo");
+
+const tableContainer = document.querySelector("#tableContainer");
+
 const checkboxInput = document.querySelector("input");
 const addrressContainer = document.querySelector("#addrresInfo");
 
 const tableUserTag = document.querySelector("#table");
 
-const userTableLocalStorage = document.querySelector("#tableUsersLocalStorage");
-
-const url = "https://randomuser.me/api/";
-
 let userArr = [];
-let newArrUs = [];
-
-const arrTenUsers = (first, last, nationality, registered) => {
-    userArr.push({ first, last, nationality, registered });
-    if (userArr.length === 11) {
-        userArr.shift();
-    }
-};
+let userArrFromLocalStorage = [];
 
 checkboxInput.addEventListener("click", () => {
     if (checkboxInput) {
@@ -31,10 +22,118 @@ checkboxInput.addEventListener("click", () => {
     }
 });
 
-const displayUsersCreateTable = (array) => {
-    console.log(array);
+const singleUserOnTheScreen = (
+    picURL,
+    username,
+    userLastName,
+    nationality,
+    registered,
+    location
+) => {
+    const profileImage = document.querySelector("img");
+    const userFirstNameInfo = document.querySelector("#userFirstName");
+    const userLastNameInfo = document.querySelector("#userLastName");
+    const nationalityInfo = document.querySelector("#nationalityInfo");
+    const registerDateInfo = document.querySelector("#regDateInfo");
+    const locationInfo = document.querySelector("#locationInfo");
+    // const checkboxInput = document.querySelector("input");
+    // const addrressContainer = document.querySelector("#addrresInfo");
 
-    const tbodyUsersTag = document.createElement("tbody");
+    profileImage.src = picURL;
+    userFirstNameInfo.innerText = username;
+    userLastNameInfo.innerText = userLastName;
+    nationalityInfo.innerText = nationality;
+    registerDateInfo.innerText = registered;
+    locationInfo.innerText = location;
+};
+
+// funkcje sortowania
+const btnSortByLastName = document.querySelector("#btnSortByLastName");
+const btnSortByRegDate = document.querySelector("#btnSortByRegDate");
+let sortTrigger = true;
+
+const sortTriggerFunction = () => {
+    if (sortTrigger) {
+        sortTrigger = false;
+    } else {
+        sortTrigger = true;
+    }
+};
+
+btnSortByLastName.addEventListener("click", () => {
+    tbodyUsersTag.remove();
+    sortTriggerFunction();
+    let sortArrayByLastName = [];
+
+    sortArrayByLastName = [...userArr].sort((a, b) =>
+        sortTrigger
+            ? b.last.localeCompare(a.last)
+            : a.last.localeCompare(b.last)
+    );
+    displayUsersCreateTable(sortArrayByLastName);
+});
+
+btnSortByRegDate.addEventListener("click", () => {
+    tbodyUsersTag.remove();
+    sortTriggerFunction();
+    let sortArrayByReg = [];
+
+    sortArrayByReg = [...userArr].sort((a, b) =>
+        sortTrigger
+            ? a.registered.localeCompare(b.registered)
+            : b.registered.localeCompare(a.registered)
+    );
+
+    displayUsersCreateTable(sortArrayByReg);
+});
+
+// Local Storage - set and get Data
+const setDataToLocalStorage = () => {
+    const lsArray = [...userArr];
+    window.localStorage.setItem("users", JSON.stringify(lsArray));
+};
+
+const getDataFromLocalStorage = () => {
+    userArrFromLocalStorage = [];
+    Object.keys(localStorage)
+        .sort()
+        .forEach((key) => {
+            usersFromLS = JSON.parse(localStorage.getItem(key)).map((user) => {
+                userArrFromLocalStorage.push({
+                    first: user.first,
+                    last: user.last,
+                    nationality: user.nationality,
+                    registered: user.registered,
+                });
+            });
+        });
+    if (userArr.length === 0) {
+        userArr = [...userArrFromLocalStorage];
+    }
+};
+
+//condition if ten user delete first one
+const arrTenUsers = (first, last, nationality, registered) => {
+    userArr.push({ first, last, nationality, registered });
+
+    if (userArr.length === 11) {
+        userArr.shift();
+    }
+};
+
+//navigation
+homeBtn.addEventListener("click", () => {
+    tableContainer.classList.add("hideData");
+    allProfileContainer.classList.remove("hideData");
+});
+
+listBtn.addEventListener("click", () => {
+    allProfileContainer.classList.add("hideData");
+    tableContainer.classList.remove("hideData");
+});
+
+const displayUsersCreateTable = (array) => {
+    let tbodyUsersTag = document.createElement("tbody");
     tbodyUsersTag.setAttribute("id", "tbodyUsersTag");
     tableUserTag.appendChild(tbodyUsersTag);
 
@@ -64,16 +163,16 @@ const displayUsersCreateTable = (array) => {
 
 btnAddNewUser.addEventListener("click", (e) => {
     e.preventDefault();
-    // const tbodyUsersTag = document.querySelector("#tbodyUsersTag");
+    tableContainer.classList.add("hideData");
+
     tbodyUsersTag.remove();
 
     const errorMsg = document.querySelector("#error");
     const loader = document.querySelector("#loader");
     loader.classList.remove("hideData");
     errorMsg.classList.add("hideData");
-    localStorage.clear();
 
-    fetch(url, {})
+    fetch("https://randomuser.me/api/", {})
         .then((response) => {
             return response.json();
         })
@@ -81,33 +180,29 @@ btnAddNewUser.addEventListener("click", (e) => {
             const dataFromServer = data.results;
 
             dataFromServer.forEach((user) => {
-                if (userArr.length === 0) {
-                }
-
-                console.log(user);
-                let firstName = `${user.name.first}`;
-                let lastName = `${user.name.last}`;
                 let pictureUrl = `${user.picture.large}`;
-                let registerData = `${user.registered.date.slice(0, 10)}`;
-                let nationality = `${user.nat}`;
                 let locationAddress = `${user.location.street.name} ${user.location.street.number}
                 ${user.location.postcode} ${user.location.city}  
                 ${user.location.country}`;
 
-                profileImage.src = pictureUrl;
-                userFirstNameInfo.innerText = firstName;
-                userLastNameInfo.innerText = lastName;
-                nationalityInfo.innerText = nationality;
-                registerDateInfo.innerText = registerData;
-                locationInfo.innerText = locationAddress;
-
-                loader.classList.add("hideData");
                 mainContainerUser.classList.remove("hideData");
-
-                arrTenUsers(firstName, lastName, nationality, registerData);
-                setDatatoLocalStorage();
+                singleUserOnTheScreen(
+                    pictureUrl,
+                    user.name.first,
+                    user.name.last,
+                    user.nat,
+                    user.registered.date.slice(0, 10),
+                    locationAddress
+                );
+                arrTenUsers(
+                    user.name.first,
+                    user.name.last,
+                    user.nat,
+                    user.registered.date.slice(0, 10)
+                );
+                setDataToLocalStorage();
                 displayUsersCreateTable(userArr);
-                // getDataFromLocalStorage();
+                loader.classList.add("hideData");
             });
         })
         .catch((data) => {
@@ -116,80 +211,6 @@ btnAddNewUser.addEventListener("click", (e) => {
             errorMsg.classList.remove("hideData");
         });
 });
-
-const btnSortByLastName = document.querySelector("#btnSortByLastName");
-const btnSortByRegDate = document.querySelector("#btnSortByRegDate");
-let sortTrigger = true;
-const sortTriggerFunction = () => {
-    if (sortTrigger) {
-        sortTrigger = false;
-    } else {
-        sortTrigger = true;
-    }
-};
-
-const sortByLastName = () => {
-    tbodyUsersTag.remove();
-    sortTriggerFunction();
-    let sortArrayByLastName = [];
-
-    sortArrayByLastName = [...userArr].sort((a, b) =>
-        sortTrigger
-            ? b.last.localeCompare(a.last)
-            : a.last.localeCompare(b.last)
-    );
-    displayUsersCreateTable(sortArrayByLastName);
-    console.log(sortArrayByLastName);
-};
-
-const sortByRegistered = () => {
-    tbodyUsersTag.remove();
-    sortTriggerFunction();
-    let sortArrayByReg = [];
-
-    sortArrayByReg = [...userArr].sort((a, b) =>
-        sortTrigger
-            ? a.registered.localeCompare(b.registered)
-            : b.registered.localeCompare(a.registered)
-    );
-    console.log(sortArrayByReg);
-    displayUsersCreateTable(sortArrayByReg);
-};
-
-btnSortByLastName.addEventListener("click", () => {
-    sortByLastName();
-});
-
-btnSortByRegDate.addEventListener("click", () => {
-    sortByRegistered();
-});
-
-const setDatatoLocalStorage = () => {
-    const lsArray = [...userArr];
-    window.localStorage.setItem("users", JSON.stringify(lsArray));
-};
-
-const getDataFromLocalStorage = () => {
-    // userTableLocalStorage.innerHTML = "";
-    newArrUs = [];
-    Object.keys(localStorage)
-        .sort()
-        .forEach((key) => {
-            usersFromLS = JSON.parse(localStorage.getItem(key)).map((user) => {
-                newArrUs.push({
-                    first: user.first,
-                    last: user.last,
-                    nationality: user.nationality,
-                    registered: user.registered,
-                });
-
-                console.log(newArrUs);
-            });
-        });
-    if (userArr.length === 0) {
-        userArr = [...newArrUs];
-    }
-};
 
 getDataFromLocalStorage();
 

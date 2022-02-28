@@ -7,57 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <script src="./index.js" defer></script>
 
 </head>
 
 <body>
     <nav>
-        <ul>
-
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/UsersPage.html">Last 10 Users</a></li>
-            <li></li>
-        </ul>
+        <button id="homeBtn">Home</button>
+        <button id="listBtn">List</button>
     </nav>
-    <button id="generateBtn">Generete new user</button>
-    <p id="error" class="hideData">Nie można załadować danych</p>
-    <p id="loader" class="hideData">Ładuje ....</p>
-    <main id="mainContainerUser" class="hideData">
+    <main id="allProfileContainer">
+        <button id="generateBtn">Generete new user</button>
+        <p id="error" class="hideData">Nie można załadować danych</p>
+        <p id="loader" class="hideData">Ładuje ....</p>
 
-        <img src="" alt="profile images">
-        <section>
-            <h1>
-                <span id="userFirstName"></span>
-                <span id="userLastName"></span>
-                (
-                <span id="nationalityInfo"></span>)
-            </h1>
+        <main id="mainContainerUser" class="hideData">
 
-            <h5>Registered: <span id="regDateInfo"></span>
-            </h5>
-        </section>
-        <section>
-            <input type="checkbox" id="trigger" name="unchecked">Hide Address </input>
-            <div id="addrresInfo">
-                <p>Address
-                <p id="locationInfo"></p>
-                </p>
-            </div>
+            <img src="" alt="profile images">
+            <section>
+                <h1>
+                    <span id="userFirstName"></span>
+                    <span id="userLastName"></span>
 
-        </section>
+                    <span id="nationalityInfo"></span>
+                </h1>
+
+                <h5>Registered: <span id="regDateInfo"></span>
+                </h5>
+            </section>
+            <section>
+                <input type="checkbox" id="trigger" name="unchecked">Hide Address </input>
+                <div id="addrresInfo">
+                    <p>Address
+                    <p id="locationInfo"></p>
+                    </p>
+                </div>
+
+            </section>
+        </main>
+
+
     </main>
-    <!-- <button id="btnSortByLastName">Sort by last name</button>
-    <button id="btnSortByRegDate">Sort by registered</button>
-    <table id="table">
-        <thead id="tableUsersData">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Country</th>
-                <th>Registration</th>
-            </tr>
-        </thead> -->
+    <div id="tableContainer" class="hideData">
+        <button id="btnSortByLastName">Sort by last name</button>
+        <button id="btnSortByRegDate">Sort by registered</button>
+        <table id="table">
+            <thead id="tableUsersData">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Country</th>
+                    <th>Registration</th>
+                </tr>
+            </thead>
+
+    </div>
+
+
 
 </body>
 
