@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
     const [data, setData] = useState([]);
-    const [refresh, setRefresh] = useState(true);
-    // const [pending, setPending] = useState("");
-    // const [error, setError] = useState("");
+    const [refresh, setRefresh] = useState(false);
+    const [pending, setPending] = useState("");
+    const [error, setError] = useState("");
     useEffect(() => {
         fetch(url)
             .then((resp) => {
@@ -22,8 +22,8 @@ export const useFetch = (url) => {
                 if (err.name === "AbortError") {
                     console.log("fetch aborted");
                 } else {
-                    // setPending(false);
-                    // setError(err);
+                    setPending(false);
+                    setError(err);
                 }
             });
     }, [url, refresh]);

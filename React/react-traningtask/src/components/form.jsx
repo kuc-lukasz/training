@@ -1,14 +1,19 @@
 import { useState } from "react";
+import { useFetch } from "./fetch-Data";
+import { useNavigate } from "react-router";
 
 export const AddNewWorker = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [department, setDepartment] = useState("IT");
-    const [salaryAmount, setSalaryAmount] = useState(0);
+    const [salaryAmount, setSalaryAmount] = useState("");
     const [currency, setCurrency] = useState("USD");
+    const [pending, isPending] = useState(true);
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        isPending(false);
         const workerData = {
             firstName,
             lastName,
@@ -22,6 +27,10 @@ export const AddNewWorker = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(workerData),
+        }).then(() => {
+            isPending(true);
+
+            navigate("/");
         });
     };
     return (
@@ -64,6 +73,7 @@ export const AddNewWorker = () => {
 
                 <label htmlFor="">Salary Amount</label>
                 <input
+                    placeholder="Amount"
                     type="number"
                     name="salaryAmount"
                     id="salaryAmount"
@@ -83,7 +93,11 @@ export const AddNewWorker = () => {
                     Currency
                     <option value="USD">USD</option>
                 </select>
-                <button>Add Worker</button>
+                {pending ? (
+                    <button>Add Blog</button>
+                ) : (
+                    <button>Adding ...</button>
+                )}
             </form>
         </>
     );

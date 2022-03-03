@@ -1,7 +1,4 @@
-import { WorkersData } from "../data/db";
-
-export const WorkerList = () => {
-    const data = WorkersData();
+export const WorkerList = ({ workers, deleteBtn }) => {
     return (
         <>
             <table>
@@ -14,7 +11,7 @@ export const WorkerList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((worker) => {
+                    {workers.map((worker) => {
                         return (
                             <>
                                 <tr key={worker.id}>
@@ -22,6 +19,13 @@ export const WorkerList = () => {
                                     <td>{worker.lastName}</td>
                                     <td>{worker.department}</td>
                                     <td>{`${worker.salaryAmount} ${worker.currency}`}</td>
+                                    <td>
+                                        <button
+                                            onClick={() => deleteBtn(worker.id)}
+                                        >
+                                            Delete Worker
+                                        </button>
+                                    </td>
                                 </tr>
                             </>
                         );
