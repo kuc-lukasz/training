@@ -33,12 +33,12 @@
       "id": "1"
     },
     {
-      "firstName": "John",
-      "lastName": "Smith",
-      "department": "IT",
-      "salaryAmount": "3000",
+      "firstName": "Mariusz",
+      "lastName": "Pudzianowski",
+      "department": "Administration",
+      "salaryAmount": "5000",
       "currency": "USD",
-      "id": "0"
+      "id": "DmSvevq"
     }
   ]
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useFetch } from "./fetch-Data";
 import { useNavigate } from "react-router";
 
 export const AddNewWorker = () => {

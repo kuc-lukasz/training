@@ -2,6 +2,7 @@ import { useFetch } from "./fetch-Data";
 import { WorkerList } from "./WorkersList";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
+import { Filters } from "./filters";
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ export const Home = () => {
                 <NavLink to="/create">Create post</NavLink>
             </button>
             <WorkerList workers={workers} deleteBtn={deleteBtn} />
+            <Filters workers={workers} deleteBtn={deleteBtn} />
         </>
     );
 };
