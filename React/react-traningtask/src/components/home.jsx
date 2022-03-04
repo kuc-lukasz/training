@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import { Filters } from "./filters";
 import { SummaryOfSalary } from "./summarySalary";
-import { PieChartForDepartments } from "./piechart";
+import { MainHomeContainer } from "../styled/homeContainer.jsx";
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -25,13 +25,12 @@ export const Home = () => {
     };
 
     return (
-        <>
+        <MainHomeContainer>
+            <SummaryOfSalary workers={workers} />
             <button>
                 <NavLink to="/create">Add new worker</NavLink>
             </button>
-
             <Filters workers={workers} deleteBtn={deleteBtn} />
-            <SummaryOfSalary workers={workers} />
-        </>
+        </MainHomeContainer>
     );
 };

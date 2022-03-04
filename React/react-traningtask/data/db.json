@@ -57,14 +57,6 @@
       "id": "uwb5YJ8"
     },
     {
-      "firstName": "Jack",
-      "lastName": "Stron",
-      "department": "Administration",
-      "salaryAmount": "8000",
-      "currency": "USD",
-      "id": "o7dWOrL"
-    },
-    {
       "firstName": "Adam",
       "lastName": "Murphy",
       "department": "Sales",
@@ -89,12 +81,12 @@
       "id": "J0a5GFE"
     },
     {
-      "firstName": "Marek",
-      "lastName": "Jarek",
+      "firstName": "Roman",
+      "lastName": "Kołton",
       "department": "IT",
-      "salaryAmount": "500.02",
+      "salaryAmount": "9800",
       "currency": "USD",
-      "id": "mo4NLRM"
+      "id": "tLvVruc"
     }
   ]
 }

@@ -1,3 +1,9 @@
+import {
+    PieChartLegend,
+    SinglePieChartBox,
+    SummaryContainer,
+    SummaryNumbers,
+} from "../styled/summaryContainer";
 import { PieChartForDepartments } from "./piechart";
 
 export const SummaryOfSalary = ({ workers }) => {
@@ -20,7 +26,7 @@ export const SummaryOfSalary = ({ workers }) => {
         arrayToPie.push({
             title: "IT",
             value: parseFloat(itSummary),
-            color: "#E38627",
+            color: "#0494c0",
         });
         return itSummary;
     };
@@ -43,7 +49,7 @@ export const SummaryOfSalary = ({ workers }) => {
         arrayToPie.push({
             title: "Administration",
             value: parseFloat(administratioSummary),
-            color: "#85480b",
+            color: "#961616",
         });
         return administratioSummary;
     };
@@ -66,7 +72,7 @@ export const SummaryOfSalary = ({ workers }) => {
         arrayToPie.push({
             title: "Sales",
             value: parseFloat(salesSummary),
-            color: "#3b2106",
+            color: "#03611f",
         });
         return salesSummary;
     };
@@ -77,13 +83,37 @@ export const SummaryOfSalary = ({ workers }) => {
 
     return (
         <>
-            <PieChartForDepartments dataToDisplay={arrayToPie} />
-            <h1>IT Salary: {itSummary}</h1>
-            <h1>
-                Administration Salary:
-                {admSummary}
-            </h1>
-            <h1>Sales Salary: {salesSummary}</h1>
+            <SummaryContainer>
+                <div>
+                    <h2>Salary Summary</h2>
+                    <SinglePieChartBox>
+                        <SummaryNumbers it>
+                            <span>IT: </span>
+                            <span>{itSummary}</span>
+                        </SummaryNumbers>
+
+                        <PieChartLegend it></PieChartLegend>
+                    </SinglePieChartBox>
+                    <SinglePieChartBox>
+                        <SummaryNumbers adm>
+                            <span>Administration: </span>
+                            <span>{admSummary}</span>
+                        </SummaryNumbers>
+
+                        <PieChartLegend adm></PieChartLegend>
+                    </SinglePieChartBox>
+                    <SinglePieChartBox>
+                        <SummaryNumbers>
+                            <span>Sales: </span>
+                            <span>{salesSummary}</span>
+                        </SummaryNumbers>
+
+                        <PieChartLegend></PieChartLegend>
+                    </SinglePieChartBox>
+                </div>
+
+                <PieChartForDepartments dataToDisplay={arrayToPie} />
+            </SummaryContainer>
         </>
     );
 };

@@ -21,70 +21,74 @@ export const Filters = ({ workers, deleteBtn }) => {
 
     return (
         <>
-            <form>
-                <h2>Filter by: </h2>
-                <label>Worker</label>
-                <input
-                    name="search"
-                    value={filterByPerson}
-                    placeholder="Write name ..."
-                    onChange={(e) => {
-                        setFilterByPerson(e.target.value);
-                    }}
-                ></input>
-            </form>
-            <form action="">
-                <label htmlFor="Department">Department</label>
-                <select
-                    name="Department"
-                    value={filterByDepartment}
-                    id="Department"
-                    onChange={(e) => {
-                        setFilterByDepartment(e.target.value);
+            <div>
+                <form>
+                    <h2>Wokers</h2>
+                    <label>Worker</label>
+                    <input
+                        name="search"
+                        value={filterByPerson}
+                        placeholder="Write name ..."
+                        onChange={(e) => {
+                            setFilterByPerson(e.target.value);
+                        }}
+                    ></input>
+                </form>
+                <form action="">
+                    <label htmlFor="Department">Department</label>
+                    <select
+                        name="Department"
+                        value={filterByDepartment}
+                        id="Department"
+                        onChange={(e) => {
+                            setFilterByDepartment(e.target.value);
+                        }}
+                    >
+                        <option value="" placeholder="Choose one"></option>
+                        <option value="IT">IT</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Administration">Administration</option>
+                    </select>
+                </form>
+                <form
+                    action=""
+                    onSubmit={(e) => {
+                        e.preventDefault();
                     }}
                 >
-                    <option value="" placeholder="Choose one"></option>
-                    <option value="IT">IT</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Administration">Administration</option>
-                </select>
-            </form>
-            <form
-                action=""
-                onSubmit={(e) => {
-                    e.preventDefault();
-                }}
-            >
-                <label>Min. Salary</label>
-                <input
-                    type="range"
-                    min={1}
-                    max={9999}
-                    step={100}
-                    name="minVal"
-                    value={filterByMinSalary}
-                    onChange={(e) => {
-                        setFilterByMinSalary(e.target.value);
-                    }}
-                ></input>
-                {filterByMinSalary}
-                <label>Max. Salary</label>
-                <input
-                    type="range"
-                    min={1}
-                    max={9999}
-                    step={100}
-                    name="maxVal"
-                    value={filterByMaxSalary}
-                    onChange={(e) => {
-                        setFilterByMaxSalary(e.target.value);
-                    }}
-                ></input>
-                {filterByMaxSalary}
-                {filterByMinSalary > filterByMaxSalary && (
-                    <h3>Min. Salary amount can't be grater than Max.salary </h3>
-                )}
-            </form>
+                    <label>Min. Salary</label>
+                    <input
+                        type="range"
+                        min={1}
+                        max={9999}
+                        step={100}
+                        name="minVal"
+                        value={filterByMinSalary}
+                        onChange={(e) => {
+                            setFilterByMinSalary(e.target.value);
+                        }}
+                    ></input>
+                    {filterByMinSalary}
+                    <label>Max. Salary</label>
+                    <input
+                        type="range"
+                        min={1}
+                        max={9999}
+                        step={100}
+                        name="maxVal"
+                        value={filterByMaxSalary}
+                        onChange={(e) => {
+                            setFilterByMaxSalary(e.target.value);
+                        }}
+                    ></input>
+                    {filterByMaxSalary}
+                    {filterByMinSalary > filterByMaxSalary && (
+                        <h3>
+                            Min. Salary amount can't be grater than Max.salary{" "}
+                        </h3>
+                    )}
+                </form>
+            </div>
 
             <table>
                 <thead>

@@ -1,39 +1,35 @@
 import { PieChart } from "react-minimal-pie-chart";
-import { useState } from "react";
 
 export const PieChartForDepartments = ({ dataToDisplay }) => {
     return (
-        <>
+        <div>
             <PieChart
                 style={{
-                    width: "500px",
+                    width: "300px",
                     fontFamily:
                         '"Nunito Sans", -apple-system, Helvetica, Arial, sans-serif',
                     fontSize: "8px",
                 }}
                 data={dataToDisplay}
-                radius={PieChart.defaultProps.radius - 15}
-                lineWidth={60}
+                lineWidth={70}
                 rounded={false}
-                label={
-                    ({ dataEntry }) => {
-                        return `
-                        ${dataEntry.title}
-                        ${parseFloat(dataEntry.value).toFixed(2)} 
-                        (${Math.round(dataEntry.percentage)}%) 
+                label={({ dataEntry }) => {
+                    return `                                                ${Math.round(
+                        dataEntry.percentage
+                    )}% 
                         `;
-                    }
-                    //  + "%"
-                }
-                labelPosition={90}
-                labelStyle={{
-                    fill: "#08a590",
-                    opacity: 0.9,
-                    pointerEvents: "none",
-                    fontSize: "4",
+                    // ${dataEntry.title}
                 }}
-                radius={30}
+                labelPosition={60}
+                labelStyle={{
+                    fill: "#ffffff",
+                    textShadow: "1px 1px #000000",
+                    pointerEvents: "none",
+                    fontSize: "7",
+                    fontWeight: "600",
+                }}
+                radius={40}
             />
-        </>
+        </div>
     );
 };
