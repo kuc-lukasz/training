@@ -38,6 +38,8 @@ export const AddNewWorker = () => {
             <form action="" onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name</label>
                 <input
+                    minLength={2}
+                    maxLength={20}
                     type="text"
                     name="firstName"
                     id="firstName"
@@ -48,6 +50,8 @@ export const AddNewWorker = () => {
                 />
                 <label htmlFor="lastName">Last Name</label>
                 <input
+                    minLength={2}
+                    maxLength={20}
                     type="text"
                     name="lastName"
                     id="lastName"
@@ -74,6 +78,9 @@ export const AddNewWorker = () => {
                 <input
                     placeholder="Amount"
                     type="number"
+                    step={0.01}
+                    min={0}
+                    max={9999}
                     name="salaryAmount"
                     id="salaryAmount"
                     value={salaryAmount}
@@ -91,6 +98,8 @@ export const AddNewWorker = () => {
                 >
                     Currency
                     <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="PLN">PLN</option>
                 </select>
                 {pending ? (
                     <button>Add Blog</button>

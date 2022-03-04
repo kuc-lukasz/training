@@ -1,5 +1,8 @@
+import { PieChartForDepartments } from "./piechart";
+
 export const SummaryOfSalary = ({ workers }) => {
     const arrayToSummary = [...workers];
+    const arrayToPie = [];
 
     const summaryITDepartment = () => {
         const itDepartmentList = arrayToSummary.filter(
@@ -14,6 +17,11 @@ export const SummaryOfSalary = ({ workers }) => {
             );
         }, 0);
 
+        arrayToPie.push({
+            title: "IT",
+            value: parseFloat(itSummary),
+            color: "#E38627",
+        });
         return itSummary;
     };
 
@@ -32,7 +40,11 @@ export const SummaryOfSalary = ({ workers }) => {
             },
             0
         );
-
+        arrayToPie.push({
+            title: "Administration",
+            value: parseFloat(administratioSummary),
+            color: "#85480b",
+        });
         return administratioSummary;
     };
 
@@ -51,22 +63,27 @@ export const SummaryOfSalary = ({ workers }) => {
             },
             0
         );
-
+        arrayToPie.push({
+            title: "Sales",
+            value: parseFloat(salesSummary),
+            color: "#3b2106",
+        });
         return salesSummary;
     };
 
-    console.log(summaryITDepartment(arrayToSummary));
-    console.log(summaryAdministrationDepartment(arrayToSummary));
-    console.log(summarySalesDepartment(arrayToSummary));
+    const itSummary = summaryITDepartment();
+    const admSummary = summaryAdministrationDepartment();
+    const salesSummary = summarySalesDepartment();
 
     return (
         <>
-            <h1>IT Salary: {summaryITDepartment(arrayToSummary)}</h1>
+            <PieChartForDepartments dataToDisplay={arrayToPie} />
+            <h1>IT Salary: {itSummary}</h1>
             <h1>
                 Administration Salary:
-                {summaryAdministrationDepartment(arrayToSummary)}
+                {admSummary}
             </h1>
-            <h1>Sales Salary: {summarySalesDepartment(arrayToSummary)}</h1>
+            <h1>Sales Salary: {salesSummary}</h1>
         </>
     );
 };

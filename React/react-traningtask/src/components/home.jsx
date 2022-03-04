@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import { Filters } from "./filters";
 import { SummaryOfSalary } from "./summarySalary";
+import { PieChartForDepartments } from "./piechart";
 
 export const Home = () => {
     const navigate = useNavigate();

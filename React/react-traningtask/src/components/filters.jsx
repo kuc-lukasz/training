@@ -4,7 +4,7 @@ export const Filters = ({ workers, deleteBtn }) => {
     const [filterByPerson, setFilterByPerson] = useState("");
     const [filterByDepartment, setFilterByDepartment] = useState("");
     const [filterByMinSalary, setFilterByMinSalary] = useState(0);
-    const [filterByMaxSalary, setFilterByMaxSalary] = useState(99999);
+    const [filterByMaxSalary, setFilterByMaxSalary] = useState(9999);
 
     const filterSalary = workers.filter((worker) => {
         const workerSal = worker.salaryAmount;
@@ -58,7 +58,7 @@ export const Filters = ({ workers, deleteBtn }) => {
                 <label>Min. Salary</label>
                 <input
                     type="range"
-                    min={0}
+                    min={1}
                     max={9999}
                     step={100}
                     name="minVal"
@@ -71,7 +71,7 @@ export const Filters = ({ workers, deleteBtn }) => {
                 <label>Max. Salary</label>
                 <input
                     type="range"
-                    min={0}
+                    min={1}
                     max={9999}
                     step={100}
                     name="maxVal"
