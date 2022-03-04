@@ -8,10 +8,6 @@ export const Filters = ({ workers, deleteBtn }) => {
 
     const filterSalary = workers.filter((worker) => {
         const workerSal = worker.salaryAmount;
-        console.log(workerSal);
-        console.log(filterByMinSalary);
-        console.log(filterByMaxSalary);
-
         return workerSal <= filterByMaxSalary && workerSal >= filterByMinSalary;
     });
     const filterDepartment = filterSalary.filter((worker) => {
@@ -22,9 +18,6 @@ export const Filters = ({ workers, deleteBtn }) => {
         const workerName = `${worker.firstName}${worker.lastName}`;
         return workerName.toLowerCase().includes(filterByPerson.toLowerCase());
     });
-
-    console.log(filterByPerson.length);
-    console.log(filterByDepartment.length);
 
     return (
         <>
@@ -66,7 +59,7 @@ export const Filters = ({ workers, deleteBtn }) => {
                 <input
                     type="range"
                     min={0}
-                    max={99999}
+                    max={9999}
                     step={100}
                     name="minVal"
                     value={filterByMinSalary}
@@ -79,7 +72,7 @@ export const Filters = ({ workers, deleteBtn }) => {
                 <input
                     type="range"
                     min={0}
-                    max={99999}
+                    max={9999}
                     step={100}
                     name="maxVal"
                     value={filterByMaxSalary}
@@ -103,79 +96,6 @@ export const Filters = ({ workers, deleteBtn }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {filterByPerson.length >= 0 ? (
-                        <>
-                            {filterPerson.map((worker) => {
-                                return (
-                                    <>
-                                        <tr key={worker.id}>
-                                            <td>{worker.firstName}</td>
-                                            <td>{worker.lastName}</td>
-                                            <td>{worker.department}</td>
-                                            <td>{`${worker.salaryAmount} ${worker.currency}`}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        deleteBtn(worker.id)
-                                                    }
-                                                >
-                                                    Delete Worker
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </>
-                                );
-                            })}
-                        </>
-                    ) : filterDepartment.length > 0 ? (
-                        <>
-                            {filterDepartment.map((worker) => {
-                                return (
-                                    <>
-                                        <tr key={worker.id}>
-                                            <td>{worker.firstName}</td>
-                                            <td>{worker.lastName}</td>
-                                            <td>{worker.department}</td>
-                                            <td>{`${worker.salaryAmount} ${worker.currency}`}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        deleteBtn(worker.id)
-                                                    }
-                                                >
-                                                    Delete Worker
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </>
-                                );
-                            })}
-                        </>
-                    ) : (
-                        <>
-                            {filterSalary.map((worker) => {
-                                return (
-                                    <>
-                                        <tr key={worker.id}>
-                                            <td>{worker.firstName}</td>
-                                            <td>{worker.lastName}</td>
-                                            <td>{worker.department}</td>
-                                            <td>{`${worker.salaryAmount} ${worker.currency}`}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        deleteBtn(worker.id)
-                                                    }
-                                                >
-                                                    Delete Worker
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </>
-                                );
-                            })}
-                        </>
-                    )} */}
                     {filterByPerson.length > 0 ? (
                         <>
                             {filterPerson.map((worker) => {

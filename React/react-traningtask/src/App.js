@@ -1,7 +1,7 @@
 import "./App.css";
 import { AddNewWorker } from "./components/form";
 import { Home } from "./components/home";
-import { WorkerList } from "./components/WorkersList";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {

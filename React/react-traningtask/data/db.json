@@ -79,6 +79,22 @@
       "salaryAmount": "2200",
       "currency": "USD",
       "id": "cPkXhPc"
+    },
+    {
+      "firstName": "Dominika",
+      "lastName": "Baczi",
+      "department": "Administration",
+      "salaryAmount": "4000",
+      "currency": "USD",
+      "id": "J0a5GFE"
+    },
+    {
+      "firstName": "Heniek",
+      "lastName": "Kuc",
+      "department": "IT",
+      "salaryAmount": "300.4",
+      "currency": "USD",
+      "id": "sq8VoGN"
     }
   ]
 }
