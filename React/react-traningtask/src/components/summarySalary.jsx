@@ -9,7 +9,9 @@ export const SummaryOfSalary = ({ workers }) => {
             (worker) => worker.salaryAmount
         );
         const itSummary = itDepartmentArr.reduce((prev, cur) => {
-            return parseInt(prev) + parseInt(cur);
+            return (Number.parseFloat(prev) + Number.parseFloat(cur)).toFixed(
+                2
+            );
         }, 0);
 
         return itSummary;
@@ -24,7 +26,9 @@ export const SummaryOfSalary = ({ workers }) => {
         );
         const administratioSummary = administrationDepartmentArr.reduce(
             (prev, cur) => {
-                return parseInt(prev) + parseInt(cur);
+                return (
+                    Number.parseFloat(prev) + Number.parseFloat(cur)
+                ).toFixed(2);
             },
             0
         );
@@ -41,7 +45,9 @@ export const SummaryOfSalary = ({ workers }) => {
         );
         const salesSummary = salesDepartmentListDepartmentArr.reduce(
             (prev, cur) => {
-                return parseInt(prev) + parseInt(cur);
+                return (
+                    Number.parseFloat(prev) + Number.parseFloat(cur)
+                ).toFixed(2);
             },
             0
         );

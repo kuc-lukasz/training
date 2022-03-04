@@ -26,7 +26,7 @@ export const Home = () => {
     return (
         <>
             <button>
-                <NavLink to="/create">Create post</NavLink>
+                <NavLink to="/create">Add new worker</NavLink>
             </button>
 
             <Filters workers={workers} deleteBtn={deleteBtn} />
