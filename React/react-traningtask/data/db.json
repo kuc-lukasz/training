@@ -39,6 +39,46 @@
       "salaryAmount": "5000",
       "currency": "USD",
       "id": "DmSvevq"
+    },
+    {
+      "firstName": "Łukasz",
+      "lastName": "Kuki",
+      "department": "IT",
+      "salaryAmount": "4000",
+      "currency": "USD",
+      "id": "MpxWPCV"
+    },
+    {
+      "firstName": "Marian",
+      "lastName": "Eski",
+      "department": "Sales",
+      "salaryAmount": "6000",
+      "currency": "USD",
+      "id": "uwb5YJ8"
+    },
+    {
+      "firstName": "Jack",
+      "lastName": "Stron",
+      "department": "Administration",
+      "salaryAmount": "8000",
+      "currency": "USD",
+      "id": "o7dWOrL"
+    },
+    {
+      "firstName": "Adam",
+      "lastName": "Murphy",
+      "department": "Sales",
+      "salaryAmount": "1000",
+      "currency": "USD",
+      "id": "ERS3mMO"
+    },
+    {
+      "firstName": "Muriu",
+      "lastName": "Pudzi",
+      "department": "Administration",
+      "salaryAmount": "2200",
+      "currency": "USD",
+      "id": "cPkXhPc"
     }
   ]
 }
