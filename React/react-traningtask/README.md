@@ -9,11 +9,13 @@
 6. Run App "npm start"
 
 # Youtube
+<a href="https://www.youtube.com/watch?v=jrgtxPlAX-U">Youtube link - watch all functionalities</a>
 
-https://www.youtube.com/watch?v=jrgtxPlAX-U
 
 # Images from project
 
-<img src="./projectImages/form.png">
-<img src="./projectImages/summary.png">
 <img src="./projectImages/workers.png">
+<img src="./projectImages/summary.png">
+<img src="./projectImages/form.png">
+
+
