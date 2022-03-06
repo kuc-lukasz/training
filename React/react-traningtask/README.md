@@ -1,6 +1,7 @@
 # how to start applications?
 
-1. Download the data to your computer
+1. Download the data to your computer, easier from new repository specially created for this application.
+   <a href="https://github.com/kuc-lukasz/react-filter-app">New Repository</a>
 2. Enter the command "npm install"
 3. Download styled-components, enter the command "npm i styled-components"
 4. Enter another command "npm install --save @types/styled-components"
