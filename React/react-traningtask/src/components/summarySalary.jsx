@@ -1,4 +1,6 @@
 import {
+    AllSummary,
+    DepartmentsLegend,
     PieChartLegend,
     SinglePieChartBox,
     SummaryContainer,
@@ -84,35 +86,33 @@ export const SummaryOfSalary = ({ workers }) => {
     return (
         <>
             <SummaryContainer>
-                <div>
-                    <h2>Salary Summary</h2>
-                    <SinglePieChartBox>
-                        <SummaryNumbers it>
-                            <span>IT: </span>
-                            <span>{itSummary}</span>
-                        </SummaryNumbers>
-
-                        <PieChartLegend it></PieChartLegend>
-                    </SinglePieChartBox>
-                    <SinglePieChartBox>
-                        <SummaryNumbers adm>
-                            <span>Administration: </span>
-                            <span>{admSummary}</span>
-                        </SummaryNumbers>
-
-                        <PieChartLegend adm></PieChartLegend>
-                    </SinglePieChartBox>
-                    <SinglePieChartBox>
-                        <SummaryNumbers>
-                            <span>Sales: </span>
-                            <span>{salesSummary}</span>
-                        </SummaryNumbers>
-
-                        <PieChartLegend></PieChartLegend>
-                    </SinglePieChartBox>
-                </div>
-
-                <PieChartForDepartments dataToDisplay={arrayToPie} />
+                <h2>Salary Summary</h2>
+                <AllSummary>
+                    <DepartmentsLegend>
+                        <SinglePieChartBox>
+                            <SummaryNumbers it>
+                                <p>IT</p>
+                                <p>{itSummary}</p>
+                            </SummaryNumbers>
+                            <PieChartLegend it></PieChartLegend>
+                        </SinglePieChartBox>
+                        <SinglePieChartBox>
+                            <SummaryNumbers>
+                                <p>Sales</p>
+                                <p>{salesSummary}</p>
+                            </SummaryNumbers>
+                            <PieChartLegend></PieChartLegend>
+                        </SinglePieChartBox>
+                        <SinglePieChartBox>
+                            <SummaryNumbers adm>
+                                <p>Administration</p>
+                                <p>{admSummary}</p>
+                            </SummaryNumbers>
+                            <PieChartLegend adm></PieChartLegend>
+                        </SinglePieChartBox>
+                    </DepartmentsLegend>
+                    <PieChartForDepartments dataToDisplay={arrayToPie} />
+                </AllSummary>
             </SummaryContainer>
         </>
     );

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Filters } from "./filters";
 import { SummaryOfSalary } from "./summarySalary";
 import { MainHomeContainer } from "../styled/homeContainer.jsx";
+import { Button } from "../styled/buttons";
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -21,16 +22,26 @@ export const Home = () => {
         }).then(() => {
             setRefresh(true);
             navigate("/");
+            pending(false);
         });
     };
 
     return (
-        <MainHomeContainer>
-            <SummaryOfSalary workers={workers} />
-            <button>
-                <NavLink to="/create">Add new worker</NavLink>
-            </button>
-            <Filters workers={workers} deleteBtn={deleteBtn} />
-        </MainHomeContainer>
+        <>
+            {error && <h3>We have some errors, try again later</h3>}
+            {pending && <div>Loading...</div>}
+            <MainHomeContainer>
+                <Button>
+                    <NavLink to="/create">Add new worker</NavLink>
+                </Button>
+
+                <Filters
+                    workers={workers}
+                    deleteBtn={deleteBtn}
+                    key={workers.id}
+                />
+                <SummaryOfSalary workers={workers} />
+            </MainHomeContainer>
+        </>
     );
 };

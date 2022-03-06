@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 export const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [refresh, setRefresh] = useState(false);
-    const [pending, setPending] = useState("");
-    const [error, setError] = useState("");
+    const [pending, setPending] = useState(true);
+    const [error, setError] = useState(null);
     useEffect(() => {
         fetch(url)
             .then((resp) => {
@@ -16,17 +16,14 @@ export const useFetch = (url) => {
             })
             .then((data) => {
                 setData(data);
+                setPending(false);
                 console.log(data);
             })
             .catch((err) => {
-                if (err.name === "AbortError") {
-                    console.log("fetch aborted");
-                } else {
-                    setPending(false);
-                    setError(err);
-                }
+                setPending(false);
+                setError(err);
             });
     }, [url, refresh]);
 
-    return { data, setRefresh };
+    return { data, setRefresh, pending, error };
 };
